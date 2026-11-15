@@ -112,8 +112,8 @@ body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,select{-webkit-user-select:text;user-select:text}
 @media print{body{display:none!important}}
 .sec{font:700 30px/1.2 "Baloo Chettan 2";margin:34px 0 14px}
-.tiles{grid-template-columns:repeat(6,minmax(0,1fr))}
-@media(max-width:1000px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tiles{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:600px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cover.img{height:230px}
 .cover .thumb{position:absolute;inset:0;background:center/cover no-repeat}
@@ -232,7 +232,8 @@ const L=window.LIB||{articles:[],books:[],flipbooks:[]};
 const CATS=[
  {id:"books",name:"പുസ്തകങ്ങൾ",g:["#22b5c4","#173b6c"],lead:"ഇല്ലസ്ട്രേറ്റഡ് പുസ്തകങ്ങളും അധ്യായങ്ങളായി വായിക്കാവുന്ന പുസ്തകങ്ങളും"},
  {id:"islam",name:"ഇസ്ലാം",g:["#1fa37f","#0b5e57"],lead:"വിശ്വാസം, ആരാധന, ജീവിതം"},
- {id:"aadarsham",name:"ആദർശം",g:["#ef5a43","#9b1d4a"],lead:"സുന്നി ആദർശം, രാഷ്ട്രീയം, ചരിത്രം, സമകാലികം",subs:["സുന്നി ആദർശം","രാഷ്ട്രീയം","ചരിത്രം","സമകാലികം"]},
+ {id:"aadarsham",name:"ആദർശം",g:["#ef5a43","#9b1d4a"],lead:"സുന്നി ആദർശം, ചരിത്രം, സമകാലികം",subs:["സുന്നി ആദർശം","ചരിത്രം","സമകാലികം"]},
+ {id:"politics",name:"രാഷ്ട്രീയം",g:["#f43f5e","#1e3a8a"],lead:"രാഷ്ട്രീയ നിരീക്ഷണങ്ങളും വിശകലനങ്ങളും"},
  {id:"family",name:"മൈ ഫാമിലി",g:["#f6b62b","#d2661a"],lead:"കുടുംബ ചരിത്രവും ഓർമ്മകളും"},
  {id:"kids",name:"കിഡ്സ് കോർണർ",g:["#38a6f5","#e8508f"],lead:"കുട്ടികളുടെ, പ്രത്യേകിച്ച് മക്കളുടെ രചനകൾ"},
  {id:"vachanam",name:"വചനാമൃതം",g:["#9b6cf5","#4b2192"],lead:"മോട്ടിവേഷൻ കഥകളും ഗുണപാഠ കഥകളും"}];

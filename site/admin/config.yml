@@ -33,6 +33,7 @@ collections:
         options:
           - {label: "ഇസ്ലാം", value: islam}
           - {label: "ആദർശം", value: aadarsham}
+          - {label: "രാഷ്ട്രീയം", value: politics}
           - {label: "മൈ ഫാമിലി", value: family}
           - {label: "കിഡ്സ് കോർണർ", value: kids}
           - {label: "വചനാമൃതം", value: vachanam}
@@ -40,7 +41,7 @@ collections:
         name: sub
         widget: select
         required: false
-        options: ["സുന്നി ആദർശം", "രാഷ്ട്രീയം", "ചരിത്രം", "സമകാലികം"]
+        options: ["സുന്നി ആദർശം", "ചരിത്രം", "സമകാലികം"]
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
       - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ വായനക്കാർക്ക് കാണില്ല (ഡ്രാഫ്റ്റ്)."}
       - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ. ഭാവി തീയതി കൊടുത്താൽ ആ ദിവസം സ്വയം വരും."}
