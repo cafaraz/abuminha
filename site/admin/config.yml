@@ -1,0 +1,88 @@
+backend:
+  name: github
+  repo: cafaraz/abuminha
+  branch: main
+  commit_messages:
+    create: "പുതിയത്: {{slug}}"
+    update: "തിരുത്ത്: {{slug}}"
+    delete: "നീക്കം: {{slug}}"
+    uploadMedia: "ഫയൽ: {{path}}"
+    deleteMedia: "ഫയൽ നീക്കം: {{path}}"
+
+site_url: https://abuminha.netlify.app
+display_url: https://abuminha.netlify.app
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: articles
+    label: "ലേഖനങ്ങൾ"
+    label_singular: "ലേഖനം"
+    folder: content/articles
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
+    summary: "{{title}}  ·  {{category}}  ·  പ്രസിദ്ധീകരിച്ചോ: {{publish}}"
+    sortable_fields: ["title", "release_date"]
+    fields:
+      - {label: "തലക്കെട്ട്", name: title, widget: string}
+      - label: "വിഭാഗം"
+        name: category
+        widget: select
+        options:
+          - {label: "ഇസ്ലാം", value: islam}
+          - {label: "ആദർശം", value: aadarsham}
+          - {label: "മൈ ഫാമിലി", value: family}
+          - {label: "കിഡ്സ് കോർണർ", value: kids}
+          - {label: "വചനാമൃതം", value: vachanam}
+      - label: "ഉപവിഭാഗം (ആദർശം മാത്രം)"
+        name: sub
+        widget: select
+        required: false
+        options: ["സുന്നി ആദർശം", "രാഷ്ട്രീയം", "ചരിത്രം", "സമകാലികം"]
+      - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
+      - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ വായനക്കാർക്ക് കാണില്ല (ഡ്രാഫ്റ്റ്)."}
+      - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ. ഭാവി തീയതി കൊടുത്താൽ ആ ദിവസം സ്വയം വരും."}
+      - {label: "ഉള്ളടക്കം", name: body, widget: markdown}
+
+  - name: books
+    label: "പുസ്തകങ്ങൾ (അധ്യായങ്ങളായി)"
+    label_singular: "പുസ്തകം"
+    folder: content/books
+    create: true
+    extension: yml
+    format: yml
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
+    summary: "{{title}}"
+    fields:
+      - {label: "പുസ്തകത്തിന്റെ പേര്", name: title, widget: string}
+      - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
+      - {label: "പുസ്തകം പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ പുസ്തകം മുഴുവനായി മറഞ്ഞിരിക്കും."}
+      - label: "അധ്യായങ്ങൾ"
+        name: chapters
+        widget: list
+        summary: "{{fields.title}}  ·  പ്രസിദ്ധീകരിച്ചോ: {{fields.publish}}  {{fields.release_date}}"
+        collapsed: true
+        fields:
+          - {label: "അധ്യായത്തിന്റെ പേര്", name: title, widget: string}
+          - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "പ്രൂഫ് റീഡിങ് കഴിഞ്ഞാൽ ഓൺ ആക്കുക."}
+          - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ."}
+          - {label: "ഉള്ളടക്കം", name: body, widget: markdown}
+
+  - name: flipbooks
+    label: "ചിത്ര പുസ്തകങ്ങൾ (PDF ഫ്ലിപ്പ് ബുക്ക്)"
+    label_singular: "ചിത്ര പുസ്തകം"
+    folder: content/flipbooks
+    create: true
+    extension: yml
+    format: yml
+    slug: "{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
+    summary: "{{title}}  ·  {{pages}} പേജുകൾ റിലീസ് ചെയ്തു"
+    fields:
+      - {label: "പുസ്തകത്തിന്റെ പേര്", name: title, widget: string}
+      - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
+      - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false}
+      - {label: "PDF ഫയൽ", name: pdf, widget: file, hint: "PDF സൈറ്റിൽ പരസ്യമാകില്ല. അനുവദിച്ച പേജുകൾ മാത്രം ചിത്രങ്ങളായി കാണിക്കും."}
+      - {label: "എത്ര പേജുകൾ വരെ റിലീസ് ചെയ്യാം", name: pages, widget: number, value_type: int, min: 1, default: 1, hint: "ഉദാ: 45 എന്ന് കൊടുത്താൽ 1 മുതൽ 45 വരെ പേജുകൾ മാത്രം കാണിക്കും."}
+      - {label: "ബാക്കി പേജുകളെക്കുറിച്ചുള്ള കുറിപ്പ്", name: note, widget: string, required: false, default: "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്."}

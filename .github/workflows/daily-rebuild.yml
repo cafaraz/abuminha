@@ -1,0 +1,17 @@
+# റിലീസ് തീയതി എത്തിയ അധ്യായങ്ങൾ സൈറ്റിൽ വരാൻ ദിവസവും ഒരു തവണ സൈറ്റ് പുതുക്കുന്നു.
+# Netlify-യിലെ Build hook URL, GitHub-ൽ NETLIFY_BUILD_HOOK എന്ന secret ആയി സൂക്ഷിക്കണം.
+name: Daily rebuild
+on:
+  schedule:
+    - cron: "5 20 * * *"   # ദുബായ് സമയം രാത്രി 12:05
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "NETLIFY_BUILD_HOOK secret ഇല്ല"; exit 0; fi
+          curl -fsS -X POST -d '{}' "$HOOK"
