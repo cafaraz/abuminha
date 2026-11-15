@@ -7,6 +7,8 @@
 - `content/flipbooks/` — PDF ചിത്ര പുസ്തകങ്ങൾ (അനുവദിച്ച പേജുകൾ മാത്രം സൈറ്റിൽ)
 - `uploads/` — PDF-കളും ചിത്രങ്ങളും (PDF സൈറ്റിൽ പരസ്യമാകില്ല)
 - `site/` — സൈറ്റിന്റെ ഡിസൈൻ, `site/admin/` — അഡ്മിൻ പാനൽ
-- `build.py` — Netlify ഓരോ മാറ്റത്തിലും ഇത് ഓടിച്ച് സൈറ്റ് നിർമ്മിക്കുന്നു
+- `build.py` — Cloudflare Pages ഓരോ മാറ്റത്തിലും ഇത് ഓടിച്ച് സൈറ്റ് നിർമ്മിക്കുന്നു
 
 രചനകൾ ചേർക്കാനും തിരുത്താനും: സൈറ്റ് വിലാസം + `/admin/`
+
+ഹോസ്റ്റിംഗ്: Cloudflare Pages (build command `python build.py`, output `dist`). അഡ്മിൻ ലോഗിന് `functions/api/` ഉപയോഗിക്കുന്നു; GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET എന്നിവ Cloudflare-ൽ സെറ്റ് ചെയ്യണം.

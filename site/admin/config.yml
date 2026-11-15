@@ -2,6 +2,8 @@ backend:
   name: github
   repo: cafaraz/abuminha
   branch: main
+  base_url: https://abuminha.pages.dev
+  auth_endpoint: api/auth
   commit_messages:
     create: "പുതിയത്: {{slug}}"
     update: "തിരുത്ത്: {{slug}}"
@@ -9,8 +11,8 @@ backend:
     uploadMedia: "ഫയൽ: {{path}}"
     deleteMedia: "ഫയൽ നീക്കം: {{path}}"
 
-site_url: https://abuminha.netlify.app
-display_url: https://abuminha.netlify.app
+site_url: https://abuminha.pages.dev
+display_url: https://abuminha.pages.dev
 media_folder: uploads
 public_folder: /uploads
 
