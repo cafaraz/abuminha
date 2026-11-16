@@ -127,7 +127,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 .selchap{display:none;width:100%;font:16px "Noto Sans Malayalam";padding:10px;border-radius:3px;border:1px solid var(--line);background:var(--card);color:var(--ink);min-height:46px;margin-bottom:12px}
 /* flipbook */
 .fwrap{padding-block:22px 40px}
-.stage{margin:0 auto}
+.stage{margin:0 auto;transition:transform .5s ease}
 .pg{background:#fff;overflow:hidden;position:relative}
 .pgi{position:absolute;inset:0;background:center/100% 100% no-repeat;pointer-events:none}
 .pgsoon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;color:#fff;background:var(--navy);outline:1px solid var(--gold);outline-offset:-14px}
@@ -142,9 +142,9 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 .hint{text-align:center;color:var(--mut);font-size:13px;margin:12px 0 0}
 #v-flip.full{position:fixed;inset:0;z-index:100;background:#141518;display:flex!important;flex-direction:column;overflow:auto}
 #v-flip.full .rban,#v-flip.full .hint{display:none}
-#v-flip.full .fwrap{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:none;padding:12px}
+#v-flip.full .fwrap{width:100%;margin:0;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:none;padding:8px 8px 76px}
 #v-flip.full .fctl span{color:#fff}
-#v-flip.full .fctl{margin-top:10px}
+#v-flip.full .fctl{position:fixed;left:0;right:0;bottom:10px;margin:0}
 #v-flip.full .fctl button{background:#2b3a52}
 /* footer */
 footer{background:var(--navy);color:#d9dee7;padding:30px 0;font-size:14px;margin-top:20px}
@@ -355,24 +355,28 @@ function buildFlip(start){
  const W=f.pages[0].w,H=f.pages[0].h,full=$("#v-flip").classList.contains("full");
  const spread=innerWidth>760;
  const par=st.parentElement,cs=getComputedStyle(par);
- const availH=Math.max(320,innerHeight-(full?96:170)),availW=Math.min(par.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),1400);
+ const availH=Math.max(320,innerHeight-(full?84:170)),availW=Math.min(par.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),1400);
  const bookW=Math.min(availW,(spread?2:1)*W/H*availH);
  st.style.width=bookW+"px";
  if(!window.St){$("#fpage").textContent="";return}
  const pw=spread?bookW/2:bookW;
  pf=new St.PageFlip(host,{width:Math.round(pw),height:Math.round(pw*H/W),size:"fixed",showCover:true,usePortrait:!spread,mobileScrollSupport:false,maxShadowOpacity:.45,flippingTime:700,startPage:start||0});
  pf.loadFromHTML(host.querySelectorAll(".pg"));
- const upd=()=>{const i=pf.getCurrentPageIndex();$("#fpage").textContent=`${Math.min(i+1,f.pages.length)} / ${f.pages.length}`};
- pf.on("flip",upd);upd();
+ const total=f.pages.length+(more?1:0);
+ const upd=()=>{const i=pf.getCurrentPageIndex();$("#fpage").textContent=`${Math.min(i+1,f.pages.length)} / ${f.pages.length}`;
+  /* കവറും അവസാന പേജും ഒറ്റയ്ക്ക് വരുമ്പോൾ നടുവിലേക്ക് നീക്കുന്നു */
+  let x=0;if(spread){if(i===0)x=-25;else if(total%2===0&&i>=total-1)x=25}
+  st.style.transform=`translateX(${x}%)`};
+ pf.on("flip",upd);pf.on("changeState",e=>{if(e.data==="flipping"||e.data==="user_fold")st.style.transform="translateX(0)"});upd();
 }
 function toggleFull(on){
  const v=$("#v-flip"),start=pf?pf.getCurrentPageIndex():0;
  v.classList.toggle("full",on);
  $("#ffs").innerHTML=on?"✕<i> പുറത്തുകടക്കുക</i>":"⛶<i> മുഴുവൻ സ്ക്രീൻ</i>";
  try{if(on&&!document.fullscreenElement&&v.requestFullscreen)v.requestFullscreen().catch(()=>{});if(!on&&document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(e){}
- setTimeout(()=>buildFlip(start),150);
+ setTimeout(()=>buildFlip(start),180);
 }
-document.addEventListener("fullscreenchange",()=>{if(!document.fullscreenElement&&$("#v-flip").classList.contains("full"))toggleFull(false)});
+document.addEventListener("fullscreenchange",()=>{const v=$("#v-flip");if(!document.fullscreenElement&&v.classList.contains("full"))toggleFull(false);else if(document.fullscreenElement&&pf)setTimeout(()=>buildFlip(pf.getCurrentPageIndex()),120)});
 let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(pf&&$("#v-flip").classList.contains("on"))buildFlip(pf.getCurrentPageIndex())},300)});
 
 function route(){
