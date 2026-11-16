@@ -134,7 +134,15 @@ def main():
                 dst = OUT / "uploads" / f.relative_to(up)
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(f, dst)
+    sp = ROOT / "content/settings.yml"
+    s = (yaml.safe_load(sp.read_text(encoding="utf-8")) or {}) if sp.exists() else {}
+    s = {k: ("" if v is None else v) for k, v in s.items()}
+    s["about"] = md(s.get("about", ""))
+    s["popular"] = [str(x) for x in (s.get("popular") or [])][:6]
+    for k in ("logo", "logo_footer", "hero_image"):
+        s[k] = str(s.get(k) or "").lstrip("/")
     lib = {
+        "settings": s,
         "articles": build_articles(),
         "books": build_books(),
         "flipbooks": build_flipbooks(),

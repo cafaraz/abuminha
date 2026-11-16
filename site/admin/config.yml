@@ -90,3 +90,39 @@ collections:
       - {label: "PDF ഫയൽ", name: pdf, widget: file, hint: "PDF സൈറ്റിൽ പരസ്യമാകില്ല. അനുവദിച്ച പേജുകൾ മാത്രം ചിത്രങ്ങളായി കാണിക്കും."}
       - {label: "എത്ര പേജുകൾ വരെ റിലീസ് ചെയ്യാം", name: pages, widget: number, value_type: int, min: 1, default: 1, hint: "ഉദാ: 45 എന്ന് കൊടുത്താൽ 1 മുതൽ 45 വരെ പേജുകൾ മാത്രം കാണിക്കും."}
       - {label: "ബാക്കി പേജുകളെക്കുറിച്ചുള്ള കുറിപ്പ്", name: note, widget: string, required: false, default: "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്."}
+
+  - name: settings
+    label: "സൈറ്റ് ക്രമീകരണങ്ങൾ"
+    editor: {preview: false}
+    files:
+      - name: site
+        label: "ലോഗോ, ചിത്രങ്ങൾ, പോപ്പുലർ, ലിങ്കുകൾ, എബൗട്ട് മി"
+        file: content/settings.yml
+        fields:
+          - {label: "സൈറ്റിന്റെ പേര്", name: site_name, widget: string}
+          - {label: "ഉപശീർഷകം", name: tagline, widget: string}
+          - {label: "ലോഗോ (മുകളിൽ)", name: logo, widget: image, required: false, hint: "പശ്ചാത്തലമില്ലാത്ത PNG, കുറഞ്ഞത് 500×500 px. ഒഴിച്ചിട്ടാൽ താൽക്കാലിക ലോഗോ."}
+          - {label: "ലോഗോ (ഫൂട്ടർ, കടും നീല പശ്ചാത്തലത്തിൽ)", name: logo_footer, widget: image, required: false, hint: "ഒഴിച്ചിട്ടാൽ മുകളിലെ ലോഗോ തന്നെ."}
+          - {label: "തലക്കെട്ട് — ഒന്നാം വരി", name: hero_line1, widget: string}
+          - {label: "തലക്കെട്ട് — രണ്ടാം വരി (മറൂൺ നിറം)", name: hero_line2, widget: string}
+          - {label: "തലക്കെട്ടിന് താഴെയുള്ള വിവരണം", name: hero_text, widget: text}
+          - {label: "ബട്ടണിലെ എഴുത്ത്", name: hero_button, widget: string}
+          - {label: "മുകളിലെ വലിയ ചിത്രം", name: hero_image, widget: image, required: false, hint: "ഏകദേശം 1600×1000 px. ഇടതുവശം ഇളം നിറമാകുന്നത് നല്ലത്."}
+          - label: "പോപ്പുലർ ആർട്ടിക്കിൾസ് (പരമാവധി 6)"
+            name: popular
+            widget: relation
+            collection: articles
+            search_fields: ["title"]
+            value_field: "{{slug}}"
+            display_fields: ["title"]
+            multiple: true
+            max: 6
+            required: false
+            hint: "ഇവിടെ തിരഞ്ഞെടുക്കുന്നവ ഹോം പേജിൽ സ്ലൈഡ് ഷോ ആയി വരും. പുതിയത് ചേർക്കാൻ 6 ആയാൽ ഒന്ന് ഒഴിവാക്കുക."
+          - {label: "Facebook ലിങ്ക്", name: facebook, widget: string, required: false}
+          - {label: "YouTube ലിങ്ക്", name: youtube, widget: string, required: false}
+          - {label: "LinkedIn ലിങ്ക്", name: linkedin, widget: string, required: false}
+          - {label: "Instagram ലിങ്ക്", name: instagram, widget: string, required: false}
+          - {label: "WhatsApp നമ്പർ", name: whatsapp, widget: string, required: false, hint: "രാജ്യ കോഡ് സഹിതം, + ഇല്ലാതെ. ഉദാ: 971501234567"}
+          - {label: "ഇമെയിൽ (Contact, Feedback എന്നിവയ്ക്ക്)", name: email, widget: string, required: false, hint: "ഫീഡ്ബാക്ക് ഫോമിൽ എഴുതുന്നവ ഈ ഇമെയിലിൽ എത്തും."}
+          - {label: "എബൗട്ട് മി", name: about, widget: markdown}
