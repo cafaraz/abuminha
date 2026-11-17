@@ -56,6 +56,8 @@ collections:
         options: ["സുന്നി ആദർശം", "ചരിത്രം"]
       - {label: "എഴുതിയത്", name: author, widget: string, required: false, hint: "മറ്റൊരാളുടെ രചനയാണെങ്കിൽ മാത്രം (ഉദാ: അക്ഷരമുറ്റം). നിങ്ങളുടേതാണെങ്കിൽ ഒഴിച്ചിടുക."}
       - {label: "ക്ലാസ് / വയസ്സ് / സ്ഥലം", name: author_info, widget: string, required: false, hint: "ഉദാ: 4-ാം ക്ലാസ്, അല്ലെങ്കിൽ ദുബായ്. വേണമെങ്കിൽ മാത്രം."}
+      - {label: "എഴുതിയ തീയതി (പഴയ ലേഖനങ്ങൾക്ക് മാത്രം)", name: written, widget: string, required: false, pattern: ['^\s*\d{4}(-\d{1,2}(-\d{1,2})?)?\s*$', "2015, 2015-08, 2015-08-12 എന്നിങ്ങനെ എഴുതുക"], hint: "അറിയുന്നത്ര മാത്രം: വർഷം (2015), വർഷവും മാസവും (2015-08), അല്ലെങ്കിൽ മുഴുവൻ (2015-08-12). പുതിയ ലേഖനമാണെങ്കിൽ ഒഴിച്ചിടുക."}
+      - {label: "എഴുതിയ സന്ദർഭം", name: context, widget: string, required: false, hint: "വേണമെങ്കിൽ മാത്രം. ഉദാ: 2018 പ്രളയകാലത്ത് എഴുതിയത്."}
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
       - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ വായനക്കാർക്ക് കാണില്ല (ഡ്രാഫ്റ്റ്)."}
       - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ. ഭാവി തീയതി കൊടുത്താൽ ആ ദിവസം സ്വയം വരും."}

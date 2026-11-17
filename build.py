@@ -39,6 +39,18 @@ def released(d):
     return rd is None or rd <= TODAY
 
 
+def written(v):
+    """എഴുതിയ തീയതി: 2015 / 2015-08 / 2015-08-12 — അറിയുന്നത്ര മാത്രം."""
+    if v in (None, ""):
+        return ""
+    if isinstance(v, (datetime.date, datetime.datetime)):
+        return v.isoformat()[:10]
+    parts = [p for p in str(v).strip().replace("/", "-").split("-") if p.strip().isdigit()]
+    if not parts or len(parts[0]) != 4:
+        return ""
+    return "-".join([parts[0]] + [f"{int(x):02d}" for x in parts[1:3]])
+
+
 def md(text):
     return markdown.markdown(text or "", extensions=["extra", "sane_lists", "nl2br"])
 
@@ -65,6 +77,7 @@ def build_articles():
             "title": d.get("title") or d.get("title_en") or "", "desc": d.get("desc") or "",
             "title_en": d.get("title_en") or "", "desc_en": d.get("desc_en") or "",
             "html_en": md(d.get("body_en", "")) if lang != "ml" else "",
+            "written": written(d.get("written")), "context": str(d.get("context") or "").strip(),
             "author": str(d.get("author") or "").strip(), "author_info": str(d.get("author_info") or "").strip(),
             "cat": d.get("category", "islam"), "sub": d.get("sub") or "",
             "date": str(as_date(d.get("release_date")) or as_date(d.get("date")) or ""),

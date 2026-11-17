@@ -265,6 +265,14 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 .card .by,.meta .by{position:relative;font-size:13px;color:var(--ink);margin-top:10px;font-weight:600}
 .meta .by{margin:0}
 .entag{font:700 11px/1 "Noto Sans Malayalam",sans-serif;color:#fff;background:var(--maroon);padding:4px 8px 3px;border-radius:999px;letter-spacing:.3px}
+.yr{font:600 11.5px/1 "Noto Sans Malayalam",sans-serif;color:var(--maroon);background:#f6e7ee;padding:4px 8px 3px;border-radius:999px}
+.rdate{margin-top:8px;font-size:14px;color:var(--ink)}
+.oldnote{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;padding:14px 18px;border-radius:12px;background:#fbf1e2;border:1px solid #ecd9b6;border-left:4px solid var(--gold)}
+.oldnote>span{font-size:22px;line-height:1.2}
+.oldnote div{display:flex;flex-direction:column;gap:2px}
+.oldnote b{color:var(--navy);font:700 16.5px/1.4 var(--hf)}
+.oldnote i{font-style:normal;color:var(--ink);font-size:15px}
+.oldnote small{color:var(--mut);font-size:13.5px}
 .altbtn{margin-top:14px;border:1.5px solid var(--maroon);background:#fff;color:var(--maroon);border-radius:999px;padding:9px 18px;font:600 15px "Noto Sans Malayalam",sans-serif}
 .altbtn:hover{background:var(--maroon);color:#fff}
 .enread article{font-family:"Noto Serif Malayalam",Georgia,serif;line-height:1.8}
@@ -419,13 +427,13 @@ body.en .hero h1{line-height:1.05}
  </div>
 
  <div class="view reader" id="v-read">
-  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div><div id="ralt"></div></div></div>
+  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div><div class="rdate" id="rdate"></div><div id="ralt"></div></div></div>
   <div class="wrap rgrid">
    <aside class="toc" id="tocbox"><h4 data-t="chapters"></h4><div id="toc"></div></aside>
    <div>
     <select class="selchap" id="selchap" aria-label="അധ്യായം തിരഞ്ഞെടുക്കുക"></select>
     <div class="tools"><button id="fsm" aria-label="അക്ഷരം ചെറുതാക്കുക">അ−</button><button id="fsp" aria-label="അക്ഷരം വലുതാക്കുക">അ+</button></div>
-    <div class="page"><article id="art"></article></div>
+    <div class="oldnote" id="oldnote"></div><div class="page"><article id="art"></article></div>
     <div class="pager" id="pager"></div>
     <div class="soon" id="soon"></div>
    </div>
@@ -481,7 +489,7 @@ const T={
   noHit:"ഈ തിരച്ചിലിന് രചനകളൊന്നും കണ്ടില്ല.",typeWord:"മുകളിൽ ഒരു വാക്ക് ടൈപ്പ് ചെയ്യുക.",soonCat:"ഈ വിഭാഗത്തിൽ രചനകൾ ഉടൻ വരുന്നു.",soonAll:"രചനകൾ ഉടൻ വരുന്നു.",all:"എല്ലാം",
   topics:"വിഷയങ്ങൾ",topicsLead:"എല്ലാ വിഭാഗങ്ങളും ഒറ്റനോട്ടത്തിൽ",works:"രചനകൾ",back:"← തിരികെ",chapters:"അധ്യായങ്ങൾ",prev:"← മുമ്പത്തേത്",next:"അടുത്തത് →",
   hint:"പേജിന്റെ മൂലയിൽ പിടിച്ച് വലിക്കുകയോ അമ്പടയാളങ്ങൾ അമർത്തുകയോ ചെയ്ത് പേജ് മറിക്കാം.",full:"മുഴുവൻ സ്ക്രീൻ",exit:"പുറത്തുകടക്കുക",cont:"തുടരും…",
-  langBtn:"English",alt:"Read in English",entag:"English",
+  langBtn:"English",alt:"Read in English",entag:"English",wLabel:"എഴുതിയ കാലം",onSite:"സൈറ്റിൽ",oldNote:"അക്കാലത്തെ പശ്ചാത്തലത്തിൽ വായിക്കുക.",
   about:"എന്നെക്കുറിച്ച്",contact:"ബന്ധപ്പെടുക",feedback:"ഫീഡ്ബാക്ക്",fbLead:"നിങ്ങളുടെ അഭിപ്രായങ്ങൾ ഞങ്ങൾക്ക് വിലപ്പെട്ടതാണ്",
   email:"ഇമെയിൽ",emailSoon:"ഉടൻ ചേർക്കും",emailBtn:"ഇമെയിൽ അയക്കുക",waLead:"നേരിട്ട് സന്ദേശം അയക്കാം",waBtn:"WhatsApp തുറക്കുക",
   fbBox:"അഭിപ്രായം അറിയിക്കാൻ",fbBoxLead:"രചനകളെക്കുറിച്ചുള്ള അഭിപ്രായങ്ങളും നിർദ്ദേശങ്ങളും",fbBtn:"ഫീഡ്ബാക്ക് ഫോം",
@@ -494,7 +502,7 @@ const T={
   noHit:"Nothing found for this search.",typeWord:"Type a word above.",soonCat:"Writings in this section are coming soon.",soonAll:"English writings are coming soon.",all:"All",
   topics:"Topics",topicsLead:"All sections at a glance",works:"writings",back:"← Back",chapters:"Chapters",prev:"← Previous",next:"Next →",
   hint:"Drag a page corner or use the arrows to turn pages.",full:"Full screen",exit:"Exit",cont:"To be continued…",
-  langBtn:"മെയിൻ സൈറ്റ്",alt:"മലയാളത്തിൽ വായിക്കുക",entag:"English",
+  langBtn:"മെയിൻ സൈറ്റ്",alt:"മലയാളത്തിൽ വായിക്കുക",entag:"English",wLabel:"Written",onSite:"Published here",oldNote:"Please read it in the context of its time.",
   about:"About me",contact:"Contact",feedback:"Feedback",fbLead:"Your thoughts are valuable to us",
   email:"Email",emailSoon:"Coming soon",emailBtn:"Send an email",waLead:"Send a message directly",waBtn:"Open WhatsApp",
   fbBox:"Share your thoughts",fbBoxLead:"Comments and suggestions about the writings",fbBtn:"Feedback form",
@@ -511,12 +519,16 @@ const $=s=>document.querySelector(s);
 const esc=x=>String(x||"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const strip=h=>h.replace(/<[^>]+>/g," ");
 const MONTHS=["ജനുവരി","ഫെബ്രുവരി","മാർച്ച്","ഏപ്രിൽ","മേയ്","ജൂൺ","ജൂലൈ","ഓഗസ്റ്റ്","സെപ്റ്റംബർ","ഒക്ടോബർ","നവംബർ","ഡിസംബർ"];
-const fmtDate=d=>{const [y,m,dd]=d.split("-");return `${+dd} ${MONTHS[+m-1]} ${y}`};
+const EMONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const fmtDate=d=>{const [y,m,dd]=d.split("-");return `${+dd} ${(LANG=="en"?EMONTHS:MONTHS)[+m-1]} ${y}`};
+/* എഴുതിയ തീയതി: 2015 / 2015-08 / 2015-08-12 */
+const fmtW=w=>{const [y,m,d]=w.split("-");const M=LANG=="en"?EMONTHS:MONTHS;return d?`${+d} ${M[+m-1]} ${y}`:m?`${M[+m-1]} ${y}`:y};
+const isOld=w=>{if(!w)return false;const [y,m,d]=w.split("-").map(Number);return (Date.now()-new Date(y,(m||1)-1,d||1))/864e5>365};
 const ARR=`<svg width="16" height="16"><use href="#arr"/></svg>`;
 const LEAF=`<svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>`;
 
 /* രണ്ട് ഭാഷയ്ക്കും വെവ്വേറെ രചനാ പട്ടിക */
-const mkA=(a,en,inEn)=>({kind:"a",id:a.id,cat:a.cat,sub:a.sub,date:a.date,a,author:a.author,info:a.author_info,lang:a.lang,
+const mkA=(a,en,inEn)=>({kind:"a",id:a.id,cat:a.cat,sub:a.sub,date:a.date,a,author:a.author,info:a.author_info,lang:a.lang,written:a.written||"",context:a.context||"",
  title:en?a.title_en||a.title:a.title,desc:en?a.desc_en:a.desc,html:en?a.html_en||a.html:a.html,enTag:!inEn&&a.lang=="en",alt:a.lang=="both"});
 const ALL={
  ml:[...L.flipbooks.map(f=>({kind:"f",id:f.id,title:f.title,desc:f.desc,cat:"books",f,date:"",enTag:f.lang=="en"})),
@@ -573,7 +585,7 @@ function applyLang(){
 const card=(i,n)=>{const k=catOf(i.cat);
  const th=i.kind=="f"?`<span class="th" style="background-image:url('${i.f.pages[0].src}')"></span>`:"";
  return `<button class="card reveal${i.enTag?" isen":""}" style="${gv(k)};--d:${(n%4)*.09}s" data-go="${i.kind}-${i.id}">${LEAF}
- <small><em>${kindName(i)}</em>${esc(subName(k,i.sub)||cname(k))}${i.enTag?`<b class="entag">${t("entag")}</b>`:""}</small>${th}<h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p>${i.author?`<span class="by">✍ ${byLine(i)}</span>`:""}<span class="go">${ARR}</span></button>`};
+ <small><em>${kindName(i)}</em>${esc(subName(k,i.sub)||cname(k))}${i.enTag?`<b class="entag">${t("entag")}</b>`:""}${isOld(i.written)?`<b class="yr">🕰 ${i.written.slice(0,4)}</b>`:""}</small>${th}<h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p>${i.author?`<span class="by">✍ ${byLine(i)}</span>`:""}<span class="go">${ARR}</span></button>`};
 
 /* ---- reveal on scroll ---- */
 const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"}):null;
@@ -674,6 +686,11 @@ function readText(kind,id,n){
  $("#toc").innerHTML=chs.map((c,j)=>`<button data-ch="${j}" aria-current="${j===ch}">${esc(c.t)}</button>`).join("");
  $("#selchap").innerHTML=chs.map((c,j)=>`<option value="${j}" ${j===ch?"selected":""}>${esc(c.t)}</option>`).join("");
  $("#rmeta").innerHTML=`<span class="pill">${esc(subName(k,it.sub)||cname(k))}</span><span>${kind=="b"?`${t("kb")} · ${chs.length} ${t("chs")}`:t("ka")}</span><span>${mins(it)} ${t("minRead")}</span>${it.author?`<span class="by">✍ ${byLine(it)}</span>`:""}`;
+ const dl=it.kind!="a"?"":it.written?`📅 ${t("wLabel")}: ${fmtW(it.written)}${it.date?` · ${t("onSite")}: ${fmtDate(it.date)}`:""}`:it.date?`📅 ${fmtDate(it.date)}`:"";
+ $("#rdate").textContent=dl;$("#rdate").style.display=dl?"":"none";
+ const note=it.kind=="a"&&(isOld(it.written)||it.context);
+ $("#oldnote").innerHTML=note?`<span>🕰</span><div>${it.written?`<b>${t("wLabel")}: ${fmtW(it.written)}</b>`:""}${it.context?`<i>${esc(it.context)}</i>`:""}${isOld(it.written)?`<small>${t("oldNote")}</small>`:""}</div>`:"";
+ $("#oldnote").style.display=note?"":"none";
  $("#ralt").innerHTML=it.alt?`<button class="altbtn" data-abs="${LANG=="en"?"":"en:"}a-${it.id}">${t("alt")} →</button>`:"";
  const c=chs[ch];
  $("#art").innerHTML=`${c.t?`<h2>${esc(c.t)}</h2>`:""}${c.html}`;
