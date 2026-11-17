@@ -25,10 +25,19 @@ collections:
     extension: md
     format: frontmatter
     slug: "{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}"
-    summary: "{{title}}  ·  {{category}}  ·  പ്രസിദ്ധീകരിച്ചോ: {{publish}}"
+    summary: "{{title}}{{title_en}}  ·  {{category}}  ·  {{lang}}  ·  പ്രസിദ്ധീകരിച്ചോ: {{publish}}"
     sortable_fields: ["title", "release_date"]
     fields:
-      - {label: "തലക്കെട്ട്", name: title, widget: string}
+      - {label: "തലക്കെട്ട് (മലയാളം)", name: title, widget: string, required: false, hint: "ഇംഗ്ലീഷ് മാത്രമുള്ള രചനയ്ക്ക് ഒഴിച്ചിടാം."}
+      - label: "ഭാഷ"
+        name: lang
+        widget: select
+        default: ml
+        options:
+          - {label: "മലയാളം മാത്രം", value: ml}
+          - {label: "മലയാളം + ഇംഗ്ലീഷ്", value: both}
+          - {label: "ഇംഗ്ലീഷ് മാത്രം", value: en}
+        hint: "മലയാളം + ഇംഗ്ലീഷ് / ഇംഗ്ലീഷ് മാത്രം ആണെങ്കിൽ താഴെയുള്ള English ഫീൽഡുകൾ പൂരിപ്പിക്കുക."
       - label: "വിഭാഗം"
         name: category
         widget: select
@@ -38,17 +47,22 @@ collections:
           - {label: "രാഷ്ട്രീയം", value: politics}
           - {label: "സമകാലികം", value: current}
           - {label: "മൈ ഫാമിലി", value: family}
-          - {label: "കിഡ്സ് കോർണർ", value: kids}
+          - {label: "അക്ഷരമുറ്റം (മറ്റുള്ളവരുടെ രചനകൾ)", value: kids}
           - {label: "വചനാമൃതം", value: vachanam}
       - label: "ഉപവിഭാഗം (ആദർശം മാത്രം)"
         name: sub
         widget: select
         required: false
         options: ["സുന്നി ആദർശം", "ചരിത്രം"]
+      - {label: "എഴുതിയത്", name: author, widget: string, required: false, hint: "മറ്റൊരാളുടെ രചനയാണെങ്കിൽ മാത്രം (ഉദാ: അക്ഷരമുറ്റം). നിങ്ങളുടേതാണെങ്കിൽ ഒഴിച്ചിടുക."}
+      - {label: "ക്ലാസ് / വയസ്സ് / സ്ഥലം", name: author_info, widget: string, required: false, hint: "ഉദാ: 4-ാം ക്ലാസ്, അല്ലെങ്കിൽ ദുബായ്. വേണമെങ്കിൽ മാത്രം."}
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
       - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ വായനക്കാർക്ക് കാണില്ല (ഡ്രാഫ്റ്റ്)."}
       - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ. ഭാവി തീയതി കൊടുത്താൽ ആ ദിവസം സ്വയം വരും."}
-      - {label: "ഉള്ളടക്കം", name: body, widget: markdown}
+      - {label: "ഉള്ളടക്കം (മലയാളം)", name: body, widget: markdown, required: false}
+      - {label: "English title", name: title_en, widget: string, required: false}
+      - {label: "English short description", name: desc_en, widget: text, required: false}
+      - {label: "English content", name: body_en, widget: markdown, required: false}
 
   - name: books
     label: "പുസ്തകങ്ങൾ (അധ്യായങ്ങളായി)"
@@ -62,6 +76,13 @@ collections:
     fields:
       - {label: "പുസ്തകത്തിന്റെ പേര്", name: title, widget: string}
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
+      - label: "ഭാഷ"
+        name: lang
+        widget: select
+        default: ml
+        options:
+          - {label: "മലയാളം", value: ml}
+          - {label: "ഇംഗ്ലീഷ്", value: en}
       - {label: "പുസ്തകം പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ പുസ്തകം മുഴുവനായി മറഞ്ഞിരിക്കും."}
       - label: "അധ്യായങ്ങൾ"
         name: chapters
@@ -87,6 +108,13 @@ collections:
       - {label: "പുസ്തകത്തിന്റെ പേര്", name: title, widget: string}
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
       - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false}
+      - label: "ഭാഷ"
+        name: lang
+        widget: select
+        default: ml
+        options:
+          - {label: "മലയാളം", value: ml}
+          - {label: "ഇംഗ്ലീഷ്", value: en}
       - {label: "PDF ഫയൽ", name: pdf, widget: file, hint: "PDF സൈറ്റിൽ പരസ്യമാകില്ല. അനുവദിച്ച പേജുകൾ മാത്രം ചിത്രങ്ങളായി കാണിക്കും."}
       - {label: "എത്ര പേജുകൾ വരെ റിലീസ് ചെയ്യാം", name: pages, widget: number, value_type: int, min: 1, default: 1, hint: "ഉദാ: 45 എന്ന് കൊടുത്താൽ 1 മുതൽ 45 വരെ പേജുകൾ മാത്രം കാണിക്കും."}
       - {label: "ബാക്കി പേജുകളെക്കുറിച്ചുള്ള കുറിപ്പ്", name: note, widget: string, required: false, default: "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്."}
@@ -107,6 +135,10 @@ collections:
           - {label: "തലക്കെട്ട് — രണ്ടാം വരി (മറൂൺ നിറം)", name: hero_line2, widget: string}
           - {label: "തലക്കെട്ടിന് താഴെയുള്ള വിവരണം", name: hero_text, widget: text}
           - {label: "ബട്ടണിലെ എഴുത്ത്", name: hero_button, widget: string}
+          - {label: "English — heading line 1", name: hero_line1_en, widget: string, required: false}
+          - {label: "English — heading line 2 (maroon)", name: hero_line2_en, widget: string, required: false}
+          - {label: "English — text under heading", name: hero_text_en, widget: text, required: false}
+          - {label: "English — button text", name: hero_button_en, widget: string, required: false}
           - {label: "മുകളിലെ വലിയ ചിത്രം", name: hero_image, widget: image, required: false, hint: "ഏകദേശം 1600×1000 px. ഇടതുവശം ഇളം നിറമാകുന്നത് നല്ലത്."}
           - label: "പോപ്പുലർ ആർട്ടിക്കിൾസ് (പരമാവധി 6)"
             name: popular
@@ -126,3 +158,4 @@ collections:
           - {label: "WhatsApp നമ്പർ", name: whatsapp, widget: string, required: false, hint: "രാജ്യ കോഡ് സഹിതം, + ഇല്ലാതെ. ഉദാ: 971501234567"}
           - {label: "ഇമെയിൽ (Contact, Feedback എന്നിവയ്ക്ക്)", name: email, widget: string, required: false, hint: "ഫീഡ്ബാക്ക് ഫോമിൽ എഴുതുന്നവ ഈ ഇമെയിലിൽ എത്തും."}
           - {label: "എബൗട്ട് മി", name: about, widget: markdown}
+          - {label: "About me (English)", name: about_en, widget: markdown, required: false}

@@ -20,7 +20,11 @@
 @font-face{font-family:"Noto Serif Malayalam";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/noto-serif-malayalam-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Noto Serif Malayalam";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/noto-serif-malayalam-malayalam-600-normal.woff2) format("woff2");unicode-range:U+0951-0952,U+0964-0965,U+0D00-0D7F,U+1CDA,U+1CF2,U+200C-200D,U+20B9,U+25CC}
 @font-face{font-family:"Noto Serif Malayalam";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/noto-serif-malayalam-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{color-scheme:light;--navy:#0e2c47;--navy2:#143a5c;--teal:#1d5f6f;--maroon:#7c1150;--gold:#c9a25a;--gold2:#e2c48a;--cream:#fbf6ee;--cream2:#f4eadb;--paper:#fffdf9;--ink:#1a2430;--mut:#5c6470;--line:#e8dfd0;--bg:var(--cream);--soft:#f7f0e4;--card:#fff;--brand:var(--navy)}
+@font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/anek-malayalam-malayalam-700-normal.woff2) format("woff2");unicode-range:U+0951-0952,U+0964-0965,U+0D00-0D7F,U+1CDA,U+1CF2,U+200C-200D,U+20B9,U+25CC}
+@font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/anek-malayalam-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/anek-malayalam-malayalam-800-normal.woff2) format("woff2");unicode-range:U+0951-0952,U+0964-0965,U+0D00-0D7F,U+1CDA,U+1CF2,U+200C-200D,U+20B9,U+25CC}
+@font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/anek-malayalam-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{color-scheme:light;--hf:"Anek Malayalam","Manjari","Noto Sans Malayalam",sans-serif;--navy:#0e2c47;--navy2:#143a5c;--teal:#1d5f6f;--maroon:#7c1150;--gold:#c9a25a;--gold2:#e2c48a;--cream:#fbf6ee;--cream2:#f4eadb;--paper:#fffdf9;--ink:#1a2430;--mut:#5c6470;--line:#e8dfd0;--bg:var(--cream);--soft:#f7f0e4;--card:#fff;--brand:var(--navy)}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Noto Sans Malayalam",system-ui,sans-serif;overflow-x:clip;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -28,9 +32,9 @@ input,select,textarea{-webkit-user-select:text;user-select:text}
 @media print{body{display:none!important}}
 a{color:inherit}button{font:inherit;cursor:pointer}
 button:focus-visible,input:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,18px)}
+.wrap{max-width:1340px;margin:0 auto;padding:0 max(4vw,18px)}
 .view{display:none}.view.on{display:block}
-h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
+h1,h2,h3,h4,.hd{font-family:var(--hf)}
 .serif{font-family:"Noto Serif Malayalam",serif}
 .pat{position:absolute;inset:0;pointer-events:none;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23e2c48a' stroke-width='1'%3E%3Ccircle cx='0' cy='0' r='28'/%3E%3Ccircle cx='56' cy='0' r='28'/%3E%3Ccircle cx='0' cy='56' r='28'/%3E%3Ccircle cx='56' cy='56' r='28'/%3E%3Ccircle cx='28' cy='28' r='28'/%3E%3C/g%3E%3C/svg%3E")}
 
@@ -44,11 +48,11 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 .logo{width:82px;height:82px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--navy);box-shadow:0 6px 18px -8px rgba(14,44,71,.6);overflow:hidden}
 .logo img{width:100%;height:100%;object-fit:contain}
 .logo svg{width:100%;height:100%}
-.brand b{display:block;font:700 34px/1.15 "Manjari",sans-serif;color:var(--navy);letter-spacing:.2px}
-.brand small{display:block;font:700 19px/1.2 "Manjari",sans-serif;color:var(--maroon);margin-top:4px}
+.brand b{display:block;font:800 34px/1.15 var(--hf);color:var(--navy);letter-spacing:.2px}
+.brand small{display:block;font:700 19px/1.2 var(--hf);color:var(--maroon);margin-top:4px}
 .navrow{position:relative;display:flex;align-items:center;gap:14px;padding:6px 0 16px}
 .nav{display:flex;align-items:center;flex-wrap:wrap;gap:4px 0;flex:1}
-.nav button{border:0;background:none;color:var(--navy);font:700 16.5px/1 "Manjari",sans-serif;padding:11px 14px 9px;border-radius:999px;display:flex;align-items:center;gap:8px;min-height:42px;position:relative;transition:background .25s,color .25s}
+.nav button{border:0;background:none;color:var(--navy);font:700 16px/1 var(--hf);padding:11px 11px 9px;border-radius:999px;display:flex;align-items:center;gap:8px;min-height:42px;position:relative;transition:background .25s,color .25s}
 .nav button+button:before{content:"";position:absolute;left:-1px;top:50%;width:3px;height:14px;margin-top:-7px;border-radius:2px;background:var(--maroon)}
 .nav button:hover{background:rgba(14,44,71,.07)}
 .nav button[aria-current=true]{background:var(--navy);color:#fff}
@@ -57,6 +61,7 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 .sbtn,.mbtn{flex:none;width:52px;height:52px;border-radius:50%;border:0;background:#fff;color:var(--navy);display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(14,44,71,.4);transition:transform .2s}
 .sbtn:hover,.mbtn:hover{transform:scale(1.06)}
 .mbtn{display:none}
+
 .top-line{height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
 
 /* ===== hero ===== */
@@ -67,16 +72,17 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
 .mote{position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(#fff6d8,#e2c48a 60%,transparent 70%);opacity:0;animation:mote 7s linear infinite}
 @keyframes mote{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:.9}100%{opacity:0;transform:translateY(-160px) scale(1.1)}}
-.htext{position:relative;z-index:2;padding:30px 0 120px;max-width:560px}
-.hero h1{margin:0;font-weight:700;line-height:1.08;font-size:clamp(46px,7vw,96px)}
+.htext{position:relative;z-index:2;padding:30px 0 120px;max-width:600px}
+.hero h1{margin:0;font-weight:800;line-height:1.14;font-size:clamp(42px,5.3vw,78px)}
+.hero h1 .l2{white-space:nowrap}
 .hero h1 span{display:block}
 .hero h1 .l1{color:var(--navy)}
 .hero h1 .l2{color:var(--maroon)}
 .uline{display:block;width:min(420px,70%);height:16px;margin:6px 0 20px}
 .uline path{stroke-dasharray:440;stroke-dashoffset:440;animation:draw 1.2s .9s ease forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-.hero p{font:700 clamp(17px,1.7vw,22px)/1.6 "Manjari",sans-serif;color:var(--ink);margin:0 0 28px;max-width:30em}
-.cta{display:inline-flex;align-items:center;gap:16px;border:0;background:var(--navy);color:#fff;font:700 clamp(17px,1.6vw,21px)/1 "Manjari",sans-serif;padding:20px 22px 18px 32px;border-radius:999px;box-shadow:0 10px 24px -12px rgba(14,44,71,.8);transition:transform .25s,box-shadow .25s}
+.hero p{font:700 clamp(17px,1.7vw,22px)/1.6 var(--hf);color:var(--ink);margin:0 0 28px;max-width:30em}
+.cta{display:inline-flex;align-items:center;gap:16px;border:0;background:var(--navy);color:#fff;font:700 clamp(17px,1.6vw,21px)/1 var(--hf);padding:20px 22px 18px 32px;border-radius:999px;box-shadow:0 10px 24px -12px rgba(14,44,71,.8);transition:transform .25s,box-shadow .25s}
 .cta i{width:32px;height:32px;border-radius:50%;background:var(--maroon);display:grid;place-items:center;transition:transform .25s}
 .cta:hover{transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(14,44,71,.9)}
 .cta:hover i{transform:translateX(4px)}
@@ -87,7 +93,7 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 /* ===== strip ===== */
 .strip{position:relative;background:var(--cream);padding:0 0 30px;margin-top:-1px;z-index:3}
 .strip .row{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;max-width:1100px;margin:0 auto}
-.sitem{border:0;background:none;display:flex;align-items:center;justify-content:center;gap:22px;padding:12px 10px;color:var(--navy);font:700 clamp(19px,2vw,26px)/1 "Manjari",sans-serif;position:relative}
+.sitem{border:0;background:none;display:flex;align-items:center;justify-content:center;gap:22px;padding:12px 10px;color:var(--navy);font:700 clamp(19px,2vw,26px)/1 var(--hf);position:relative}
 .sitem+.sitem:before{content:"";position:absolute;left:0;top:10%;bottom:10%;width:1.5px;background:linear-gradient(transparent,#cdbfa8,transparent)}
 .sitem i{width:clamp(64px,7vw,96px);height:clamp(64px,7vw,96px);border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff3e2,#f3d9b8);box-shadow:inset 0 0 0 1px rgba(201,162,90,.25),0 6px 16px -10px rgba(124,80,20,.6);transition:transform .35s}
 .sitem i svg{width:44%;height:44%}
@@ -95,7 +101,7 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 .sitem span{padding-top:4px}
 
 /* ===== section titles ===== */
-.stitle{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,40px);margin:0 0 34px;font:700 clamp(26px,3vw,38px)/1.2 "Manjari",sans-serif;color:var(--navy);text-align:center}
+.stitle{display:flex;align-items:center;justify-content:center;gap:clamp(14px,3vw,40px);margin:0 0 34px;font:800 clamp(26px,3vw,38px)/1.2 var(--hf);color:var(--navy);text-align:center}
 .stitle:before,.stitle:after{content:"";height:2px;width:min(230px,18vw);background:linear-gradient(90deg,transparent,var(--gold));transform:scaleX(0);transition:transform 1s .2s}
 .stitle:after{background:linear-gradient(270deg,transparent,var(--gold))}
 .stitle.in:before,.stitle.in:after{transform:none}
@@ -109,14 +115,14 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 .card .leaf{position:absolute;right:-14px;top:-6px;width:118px;height:118px;color:var(--g1);opacity:.13;transition:transform .6s}
 .card:hover{transform:translateY(-6px);box-shadow:0 22px 36px -20px rgba(20,30,50,.6)}
 .card:hover .leaf{transform:rotate(-10deg) scale(1.06)}
-.card small{position:relative;font:700 13px/1 "Manjari",sans-serif;color:var(--g1);letter-spacing:.2px;margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.card small{position:relative;font:700 13px/1 var(--hf);color:var(--g1);letter-spacing:.2px;margin-bottom:12px;display:flex;gap:8px;align-items:center}
 .card small em{font-style:normal;background:color-mix(in srgb,var(--g1) 12%,#fff);padding:5px 9px 3px;border-radius:999px}
 .card h3{position:relative;margin:0 0 8px;font-size:21px;line-height:1.35;color:var(--navy);overflow-wrap:anywhere}
 .card p{position:relative;margin:0;color:var(--mut);font-size:14.5px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card .go{margin-top:auto;align-self:flex-end;width:34px;height:34px;border-radius:50%;background:var(--g1);color:#fff;display:grid;place-items:center;transition:transform .3s}
 .card:hover .go{transform:translateX(4px)}
 .card .th{position:relative;float:right;width:62px;height:84px;margin:-4px -4px 6px 10px;background:center/cover no-repeat;border-radius:3px;box-shadow:0 6px 12px -6px rgba(0,0,0,.5)}
-.more{display:none;margin:26px auto 0;border:1.5px solid var(--navy);background:none;color:var(--navy);font:700 16px/1 "Manjari",sans-serif;padding:14px 26px 12px;border-radius:999px}
+.more{display:none;margin:26px auto 0;border:1.5px solid var(--navy);background:none;color:var(--navy);font:700 16px/1 var(--hf);padding:14px 26px 12px;border-radius:999px}
 .reveal{opacity:0;transform:translateY(34px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .empty{padding:40px;text-align:center;color:var(--mut);border:1px dashed var(--line);border-radius:12px;grid-column:1/-1}
@@ -134,7 +140,7 @@ h1,h2,h3,h4,.hd{font-family:"Manjari","Noto Sans Malayalam",sans-serif}
 .slide.t1{background:linear-gradient(135deg,#ece6fb,#cfc4f1)}
 .slide.t2{background:linear-gradient(135deg,#f3f2dc,#dfe0b3)}
 .slide .leaf{position:absolute;right:-10px;bottom:-14px;width:150px;height:150px;opacity:.18;color:#7a6a3a}
-.slide small{align-self:flex-start;font:700 13px/1 "Manjari",sans-serif;color:var(--navy);border:1.5px solid rgba(14,44,71,.35);border-radius:999px;padding:6px 12px 4px;margin-bottom:14px;background:rgba(255,255,255,.55)}
+.slide small{align-self:flex-start;font:700 13px/1 var(--hf);color:var(--navy);border:1.5px solid rgba(14,44,71,.35);border-radius:999px;padding:6px 12px 4px;margin-bottom:14px;background:rgba(255,255,255,.55)}
 .slide h3{position:relative;margin:0 0 8px;font-size:24px;line-height:1.3;color:var(--navy)}
 .slide p{position:relative;margin:0 0 14px;color:#3d4550;font-size:15px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .slide .go{margin-top:auto;align-self:flex-end;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center}
@@ -178,18 +184,18 @@ footer{position:relative;background:var(--navy);color:#dfe5ee;overflow:hidden}
 .topic{position:relative;border:0;border-radius:14px;text-align:left;padding:24px 22px;min-height:150px;background:linear-gradient(160deg,color-mix(in srgb,var(--g1) 9%,#fff),#fff 80%);box-shadow:0 10px 26px -18px rgba(20,30,50,.55);overflow:hidden;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
 .topic:before{content:"";position:absolute;left:14px;right:14px;top:0;height:5px;border-radius:0 0 6px 6px;background:var(--g1)}
 .topic:hover{transform:translateY(-5px)}
-.topic b{font:700 22px/1.3 "Manjari",sans-serif;color:var(--navy)}
+.topic b{font:700 22px/1.3 var(--hf);color:var(--navy)}
 .topic span{color:var(--mut);font-size:14px;line-height:1.55}
 .topic em{margin-top:auto;font-style:normal;font-size:13px;font-weight:600;color:var(--g1)}
 .prose{max-width:46em;margin:0 auto;padding:40px 0 70px;font-family:"Noto Serif Malayalam",serif;font-size:18px;line-height:1.95}
-.prose h2{font-family:"Manjari",sans-serif;color:var(--navy);font-size:30px;line-height:1.3;margin:0 0 .6em}
-.prose h3{font-family:"Manjari",sans-serif;color:var(--maroon);font-size:23px;margin:1.6em 0 .4em}
+.prose h2{font-family:var(--hf);color:var(--navy);font-size:30px;line-height:1.3;margin:0 0 .6em}
+.prose h3{font-family:var(--hf);color:var(--maroon);font-size:23px;margin:1.6em 0 .4em}
 .prose p{margin:0 0 1.1em}
 .cbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;padding:40px 0 30px}
 .cb{border-radius:14px;padding:26px;background:#fff;box-shadow:0 10px 26px -18px rgba(20,30,50,.55);border-top:5px solid var(--g1);display:flex;flex-direction:column;gap:10px;font-family:"Noto Sans Malayalam",sans-serif}
-.cb b{font:700 21px/1.3 "Manjari",sans-serif;color:var(--navy)}
+.cb b{font:700 21px/1.3 var(--hf);color:var(--navy)}
 .cb span{color:var(--mut);font-size:15px;overflow-wrap:anywhere}
-.btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--navy);color:#fff;padding:13px 22px 11px;font:700 16px/1 "Manjari",sans-serif;text-decoration:none}
+.btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;border:0;border-radius:999px;background:var(--navy);color:#fff;padding:13px 22px 11px;font:700 16px/1 var(--hf);text-decoration:none}
 .btn.wa{background:#1fa855}
 .btn[aria-disabled=true]{opacity:.45;pointer-events:none}
 form.fb{display:grid;gap:14px;max-width:640px;margin:0 auto;padding:40px 0 70px;font-family:"Noto Sans Malayalam",sans-serif;font-size:16px}
@@ -224,7 +230,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 .pager button:last-child{text-align:right}
 .pager small{display:block;color:var(--mut);font-size:13px}
 .soon{margin-top:22px;padding:16px 20px;border:1px solid var(--line);border-left:3px solid var(--gold);background:var(--soft);display:flex;flex-direction:column;gap:2px;border-radius:8px}
-.soon b{font:700 18px "Manjari",sans-serif;color:var(--navy)}
+.soon b{font:700 18px var(--hf);color:var(--navy)}
 .soon span{color:var(--mut);font-size:14px}
 .selchap{display:none;width:100%;font:16px "Noto Sans Malayalam";padding:10px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);min-height:46px;margin-bottom:12px}
 /* flipbook */
@@ -233,7 +239,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 .pg{background:#fff;overflow:hidden;position:relative}
 .pgi{position:absolute;inset:0;background:center/100% 100% no-repeat;pointer-events:none}
 .pgsoon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px;color:#fff;background:var(--navy);outline:1px solid var(--gold);outline-offset:-14px}
-.pgsoon b{font:700 clamp(28px,5vw,42px) "Manjari",sans-serif;color:var(--gold2)}
+.pgsoon b{font:700 clamp(28px,5vw,42px) var(--hf);color:var(--gold2)}
 .pgsoon small{opacity:.8}
 .fctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px;flex-wrap:wrap}
 .fctl button{border:0;color:#fff;background:var(--navy);border-radius:50%;width:52px;height:52px;font-size:20px}
@@ -252,9 +258,20 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 #v-flip.full .fctl{position:fixed;left:0;right:0;bottom:10px;margin:0}
 #v-flip.full .fctl button{background:#2b3a52}
 
+.lbtn{flex:none;height:44px;border-radius:999px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font:700 15px/1 var(--hf);padding:2px 18px 0;box-shadow:0 4px 14px -8px rgba(14,44,71,.4);transition:background .2s,color .2s}
+.lbtn:hover{background:var(--navy);color:#fff}
+.nav .lg{display:none}
+.rgrid.one{grid-template-columns:minmax(0,1fr)}
+.card .by,.meta .by{position:relative;font-size:13px;color:var(--ink);margin-top:10px;font-weight:600}
+.meta .by{margin:0}
+.entag{font:700 11px/1 "Noto Sans Malayalam",sans-serif;color:#fff;background:var(--maroon);padding:4px 8px 3px;border-radius:999px;letter-spacing:.3px}
+.altbtn{margin-top:14px;border:1.5px solid var(--maroon);background:#fff;color:var(--maroon);border-radius:999px;padding:9px 18px;font:600 15px "Noto Sans Malayalam",sans-serif}
+.altbtn:hover{background:var(--maroon);color:#fff}
+.enread article{font-family:"Noto Serif Malayalam",Georgia,serif;line-height:1.8}
+body.en .hero h1{line-height:1.05}
 /* ===== responsive ===== */
-@media(max-width:1180px){.nav button{padding:11px 10px 9px;font-size:15.5px}}
-@media(max-width:1060px){
+@media(max-width:1280px){.nav button{padding:11px 8px 9px;font-size:15px}}
+@media(max-width:1180px){
  .mbtn{display:grid}
  .navrow{position:absolute;top:28px;right:max(4vw,18px);padding:0;gap:10px}
  .nav{display:none;position:fixed;left:0;right:0;top:0;bottom:0;z-index:50;background:rgba(14,44,71,.97);flex-direction:column;align-items:stretch;justify-content:center;gap:6px;padding:80px 10vw 40px}
@@ -263,7 +280,8 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
  .nav button{color:#fff;font-size:21px;justify-content:center;padding:14px}
  .nav button:before{display:none}
  .nav button[aria-current=true]{background:var(--gold);color:var(--navy)}
- .brand{padding:18px 120px 18px 0}
+ .nav .lg{display:flex;margin-top:14px;border:1.5px solid var(--gold);color:var(--gold2)}
+ .brand{padding:18px 250px 18px 0}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
  .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
  .slide{flex-basis:calc((100% - 28px)/2)}
@@ -279,9 +297,10 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 }
 @media(max-width:600px){
  .crown{width:34vw;height:46px}
- .brand b{font-size:27px}.brand small{font-size:16px}.logo{width:64px;height:64px}
+ .brand b{font-size:23px}.brand small{font-size:15px}.logo{width:56px;height:56px}.brand{gap:12px}
  .brand{padding-right:110px}
  .sbtn,.mbtn{width:46px;height:46px}
+ .lbtn{display:none}
  .navrow{top:26px}
  .cards{grid-template-columns:minmax(0,1fr);gap:18px}
  .cards .card:nth-child(n+5){display:none}
@@ -315,6 +334,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
   <a class="brand" href="#home" aria-label="ഹോം"><span class="logo" id="logo"></span><span><b id="sname"></b><small id="stag"></small></span></a>
   <div class="navrow">
    <nav class="nav" id="nav" aria-label="പ്രധാന മെനു"></nav>
+   <button class="lbtn" id="lbtn"></button>
    <button class="sbtn" id="sbtn" aria-label="തിരയുക"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
    <button class="mbtn" id="mbtn" aria-label="മെനു" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -344,17 +364,17 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 
   <section class="strip">
    <div class="wrap row">
-    <button class="sitem reveal" data-go="c-books"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M2 5.5C4.6 4.2 8 4.3 11 6v13c-3-1.6-6.4-1.7-9-.4zM22 5.5C19.4 4.2 16 4.3 13 6v13c3-1.6 6.4-1.7 9-.4z"/></svg></i><span>പുസ്തകങ്ങൾ</span></button>
-    <button class="sitem reveal" style="--d:.12s" data-go="all"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5zM7.5 11v1.6h9V11zm0 3.4V16h9v-1.6zm0 3.4v1.6h6v-1.6z"/></svg></i><span>ലേഖനങ്ങൾ</span></button>
-    <button class="sitem reveal" style="--d:.24s" data-go="topics"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M17.6 2.2a2.6 2.6 0 0 1 3.7 3.7L9.6 17.6l-5 1.3 1.3-5zM4.2 20.4h15.6V22H4.2z"/></svg></i><span>വിഷയങ്ങൾ</span></button>
+    <button class="sitem reveal" data-go="c-books"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M2 5.5C4.6 4.2 8 4.3 11 6v13c-3-1.6-6.4-1.7-9-.4zM22 5.5C19.4 4.2 16 4.3 13 6v13c3-1.6 6.4-1.7 9-.4z"/></svg></i><span data-t="sBooks"></span></button>
+    <button class="sitem reveal" style="--d:.12s" data-go="all"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5zM7.5 11v1.6h9V11zm0 3.4V16h9v-1.6zm0 3.4v1.6h6v-1.6z"/></svg></i><span data-t="sArts"></span></button>
+    <button class="sitem reveal" style="--d:.24s" data-go="topics"><i><svg viewBox="0 0 24 24" fill="#0e2c47"><path d="M17.6 2.2a2.6 2.6 0 0 1 3.7 3.7L9.6 17.6l-5 1.3 1.3-5zM4.2 20.4h15.6V22H4.2z"/></svg></i><span data-t="sTopics"></span></button>
    </div>
   </section>
 
   <section class="latest">
    <div class="wrap">
-    <h2 class="stitle" data-in>ഏറ്റവും പുതിയവ</h2>
+    <h2 class="stitle" data-in data-t="latest"></h2>
     <div class="cards" id="latest"></div>
-    <button class="more" data-go="all">എല്ലാം കാണുക →</button>
+    <button class="more" data-go="all" data-t="more"></button>
    </div>
   </section>
 
@@ -366,7 +386,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
    </svg>
    <div class="popular"><span class="pat"></span>
     <div class="wrap">
-     <h2 class="stitle" data-in>പോപ്പുലർ ആർട്ടിക്കിൾസ്</h2>
+     <h2 class="stitle" data-in data-t="popular"></h2>
      <div class="slider" id="slider">
       <div class="vp"><div class="track" id="track"></div></div>
       <div class="sctl" id="sctl"><button class="ar" id="sprev" aria-label="മുമ്പത്തേത്"><svg width="18" height="18" style="transform:scaleX(-1)"><use href="#arr"/></svg></button><div class="dots" id="dots"></div><button class="ar" id="snext" aria-label="അടുത്തത്"><svg width="18" height="18"><use href="#arr"/></svg></button></div>
@@ -382,14 +402,14 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
    <div class="bar">
     <div class="subs" id="subs"></div>
     <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-     <input id="q" type="search" placeholder="തിരയുക…" aria-label="രചനകൾ തിരയുക"></label>
+     <input id="q" type="search" data-tp="searchPh" aria-label="രചനകൾ തിരയുക"></label>
    </div>
    <div class="cards listgrid" id="grid"></div>
   </section>
  </div>
 
  <div class="view" id="v-topics">
-  <div class="pghead"><span class="pat"></span><div class="wrap"><h2>വിഷയങ്ങൾ</h2><p>എല്ലാ വിഭാഗങ്ങളും ഒറ്റനോട്ടത്തിൽ</p></div></div>
+  <div class="pghead"><span class="pat"></span><div class="wrap"><h2 data-t="topics"></h2><p data-t="topicsLead"></p></div></div>
   <section class="wrap topics" id="topics"></section>
  </div>
 
@@ -399,9 +419,9 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
  </div>
 
  <div class="view reader" id="v-read">
-  <div class="rban"><div class="wrap"><button class="back" data-back>← തിരികെ</button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div></div></div>
+  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div><div id="ralt"></div></div></div>
   <div class="wrap rgrid">
-   <aside class="toc" id="tocbox"><h4>അധ്യായങ്ങൾ</h4><div id="toc"></div></aside>
+   <aside class="toc" id="tocbox"><h4 data-t="chapters"></h4><div id="toc"></div></aside>
    <div>
     <select class="selchap" id="selchap" aria-label="അധ്യായം തിരഞ്ഞെടുക്കുക"></select>
     <div class="tools"><button id="fsm" aria-label="അക്ഷരം ചെറുതാക്കുക">അ−</button><button id="fsp" aria-label="അക്ഷരം വലുതാക്കുക">അ+</button></div>
@@ -413,7 +433,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
  </div>
 
  <div class="view reader" id="v-flip">
-  <div class="rban"><div class="wrap"><button class="back" data-back>← തിരികെ</button><h1 id="ftitle"></h1><div class="meta" id="fmeta"></div></div></div>
+  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="ftitle"></h1><div class="meta" id="fmeta"></div></div></div>
   <div class="wrap fwrap">
    <div class="stage" id="stage"></div>
    <div class="fctl">
@@ -422,7 +442,7 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
     <button id="fnext" aria-label="അടുത്ത പേജ്">→</button>
     <button id="ffs" class="fsbtn" aria-label="മുഴുവൻ സ്ക്രീൻ">⛶<i> മുഴുവൻ സ്ക്രീൻ</i></button>
    </div>
-   <p class="hint">പേജിന്റെ മൂലയിൽ പിടിച്ച് വലിക്കുകയോ അമ്പടയാളങ്ങൾ അമർത്തുകയോ ചെയ്ത് പേജ് മറിക്കാം.</p>
+   <p class="hint" data-t="hint"></p>
    <div class="adm" id="adm"><button id="offdl">⬇ ഓഫ്‌ലൈൻ ഫ്ലിപ്ബുക്ക് ഡൗൺലോഡ്</button><small>അഡ്മിന് മാത്രം കാണുന്നത്. ഒറ്റ ഫയൽ — ഇന്റർനെറ്റ് ഇല്ലാതെ ബ്രൗസറിൽ (Chrome) തുറന്ന് വായിക്കാം.</small></div>
   </div>
  </div>
@@ -446,44 +466,80 @@ article blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(-
 const L=window.LIB||{articles:[],books:[],flipbooks:[]};
 const S=Object.assign({site_name:"അബുമിൻഹ",tagline:"എഴുത്തുപുര",hero_line1:"എന്റെ",hero_line2:"വരയും വരിയും",hero_text:"",hero_button:"നിങ്ങളുടെ വായനക്ക്",popular:[],about:""},L.settings||{});
 const CATS=[
- {id:"islam",name:"ഇസ്‌ലാം",g:["#2d6a4f"],lead:"വിശ്വാസം, ആരാധന, ജീവിതം"},
- {id:"aadarsham",name:"ആദർശം",g:["#9b1d3a"],lead:"സുന്നി ആദർശവും ചരിത്രവും",subs:["സുന്നി ആദർശം","ചരിത്രം"]},
- {id:"current",name:"സമകാലികം",g:["#1f6f66"],lead:"സമകാലിക വിഷയങ്ങളിലെ ചിന്തകൾ"},
- {id:"politics",name:"രാഷ്ട്രീയം",g:["#2b4c8c"],lead:"രാഷ്ട്രീയ നിരീക്ഷണങ്ങളും വിശകലനങ്ങളും"},
- {id:"vachanam",name:"വചനാമൃതം",g:["#6a3c8a"],lead:"മോട്ടിവേഷൻ കഥകളും ഗുണപാഠ കഥകളും"},
- {id:"family",name:"മൈ ഫാമിലി",g:["#9a6a1f"],lead:"കുടുംബ ചരിത്രവും ഓർമ്മകളും"},
- {id:"kids",name:"കിഡ്സ് കോർണർ",g:["#3a55b4"],lead:"കുട്ടികളുടെ, പ്രത്യേകിച്ച് മക്കളുടെ രചനകൾ"},
- {id:"books",name:"പുസ്തകങ്ങൾ",g:["#1d3f6b"],lead:"ചിത്ര പുസ്തകങ്ങളും അധ്യായങ്ങളായി വായിക്കാവുന്ന പുസ്തകങ്ങളും"}];
+ {id:"islam",g:["#2d6a4f"],name:"ഇസ്‌ലാം",lead:"വിശ്വാസം, ആരാധന, ജീവിതം",en:"Islam",elead:"Faith, worship and life"},
+ {id:"aadarsham",g:["#9b1d3a"],name:"ആദർശം",lead:"സുന്നി ആദർശവും ചരിത്രവും",en:"Ideology",elead:"Sunni ideology and history",subs:["സുന്നി ആദർശം","ചരിത്രം"],esubs:["Sunni Ideology","History"]},
+ {id:"current",g:["#1f6f66"],name:"സമകാലികം",lead:"സമകാലിക വിഷയങ്ങളിലെ ചിന്തകൾ",en:"Current Affairs",elead:"Reflections on the issues of our time"},
+ {id:"politics",g:["#2b4c8c"],name:"രാഷ്ട്രീയം",lead:"രാഷ്ട്രീയ നിരീക്ഷണങ്ങളും വിശകലനങ്ങളും",en:"Politics",elead:"Political observations and analysis"},
+ {id:"vachanam",g:["#6a3c8a"],name:"വചനാമൃതം",lead:"മോട്ടിവേഷൻ കഥകളും ഗുണപാഠ കഥകളും",en:"Words of Wisdom",elead:"Motivational and moral stories"},
+ {id:"family",g:["#9a6a1f"],name:"മൈ ഫാമിലി",lead:"കുടുംബ ചരിത്രവും ഓർമ്മകളും",en:"My Family",elead:"Family history and memories"},
+ {id:"kids",g:["#3a55b4"],name:"അക്ഷരമുറ്റം",lead:"കുട്ടികളും കുടുംബാംഗങ്ങളും കൂട്ടുകാരും എഴുതിയ രചനകൾ",en:"Aksharamuttam",elead:"Writings by children, family and friends"},
+ {id:"books",g:["#1d3f6b"],name:"പുസ്തകങ്ങൾ",lead:"ചിത്ര പുസ്തകങ്ങളും അധ്യായങ്ങളായി വായിക്കാവുന്ന പുസ്തകങ്ങളും",en:"Books",elead:"Illustrated books and books in chapters"}];
+const T={
+ ml:{home:"Home",sBooks:"പുസ്തകങ്ങൾ",sArts:"ലേഖനങ്ങൾ",sTopics:"വിഷയങ്ങൾ",latest:"ഏറ്റവും പുതിയവ",popular:"പോപ്പുലർ ആർട്ടിക്കിൾസ്",more:"എല്ലാം കാണുക →",
+  kf:"ചിത്ര പുസ്തകം",kb:"പുസ്തകം",ka:"ലേഖനം",pages:"പേജുകൾ",chs:"അധ്യായങ്ങൾ",min:"മിനിറ്റ്",minRead:"മിനിറ്റ് വായന",by:"എഴുതിയത്",
+  arts:"ലേഖനങ്ങൾ",artsLead:"എല്ലാ ലേഖനങ്ങളും — ഏറ്റവും പുതിയത് ആദ്യം",search:"തിരയുക",searchLead:"പുസ്തകങ്ങളിലും ലേഖനങ്ങളിലും തിരയാം",searchPh:"തിരയുക…",
+  noHit:"ഈ തിരച്ചിലിന് രചനകളൊന്നും കണ്ടില്ല.",typeWord:"മുകളിൽ ഒരു വാക്ക് ടൈപ്പ് ചെയ്യുക.",soonCat:"ഈ വിഭാഗത്തിൽ രചനകൾ ഉടൻ വരുന്നു.",soonAll:"രചനകൾ ഉടൻ വരുന്നു.",all:"എല്ലാം",
+  topics:"വിഷയങ്ങൾ",topicsLead:"എല്ലാ വിഭാഗങ്ങളും ഒറ്റനോട്ടത്തിൽ",works:"രചനകൾ",back:"← തിരികെ",chapters:"അധ്യായങ്ങൾ",prev:"← മുമ്പത്തേത്",next:"അടുത്തത് →",
+  hint:"പേജിന്റെ മൂലയിൽ പിടിച്ച് വലിക്കുകയോ അമ്പടയാളങ്ങൾ അമർത്തുകയോ ചെയ്ത് പേജ് മറിക്കാം.",full:"മുഴുവൻ സ്ക്രീൻ",exit:"പുറത്തുകടക്കുക",cont:"തുടരും…",
+  langBtn:"English",alt:"Read in English",entag:"English",
+  about:"എന്നെക്കുറിച്ച്",contact:"ബന്ധപ്പെടുക",feedback:"ഫീഡ്ബാക്ക്",fbLead:"നിങ്ങളുടെ അഭിപ്രായങ്ങൾ ഞങ്ങൾക്ക് വിലപ്പെട്ടതാണ്",
+  email:"ഇമെയിൽ",emailSoon:"ഉടൻ ചേർക്കും",emailBtn:"ഇമെയിൽ അയക്കുക",waLead:"നേരിട്ട് സന്ദേശം അയക്കാം",waBtn:"WhatsApp തുറക്കുക",
+  fbBox:"അഭിപ്രായം അറിയിക്കാൻ",fbBoxLead:"രചനകളെക്കുറിച്ചുള്ള അഭിപ്രായങ്ങളും നിർദ്ദേശങ്ങളും",fbBtn:"ഫീഡ്ബാക്ക് ഫോം",
+  fName:"പേര്",fContact:"ഇമെയിൽ അല്ലെങ്കിൽ ഫോൺ (വേണമെങ്കിൽ)",fMsg:"നിങ്ങളുടെ അഭിപ്രായം",fSend:"അയക്കുക",fSending:"അയക്കുന്നു…",
+  fThanks:"നന്ദി! നിങ്ങളുടെ അഭിപ്രായം ലഭിച്ചു.",fFail:"അയക്കാൻ കഴിഞ്ഞില്ല. ഒന്നുകൂടി ശ്രമിക്കുക",fViaWa:"അല്ലെങ്കിൽ WhatsApp വഴി അറിയിക്കുക",fSoon:"ഫോം ഉടൻ പ്രവർത്തനക്ഷമമാകും.",
+  nextCh:d=>`അടുത്ത അധ്യായം ${d?fmtDate(d)+"-ന്":"ഉടൻ"} വരുന്നു`,soFar:(a,b)=>`ഇതുവരെ ${a} / ${b} അധ്യായങ്ങൾ പ്രസിദ്ധീകരിച്ചു.`},
+ en:{home:"Home",sBooks:"Books",sArts:"Articles",sTopics:"Topics",latest:"Latest",popular:"Popular Articles",more:"View all →",
+  kf:"Picture book",kb:"Book",ka:"Article",pages:"pages",chs:"chapters",min:"min",minRead:"min read",by:"By",
+  arts:"Articles",artsLead:"All English articles — newest first",search:"Search",searchLead:"Search the English writings",searchPh:"Search…",
+  noHit:"Nothing found for this search.",typeWord:"Type a word above.",soonCat:"Writings in this section are coming soon.",soonAll:"English writings are coming soon.",all:"All",
+  topics:"Topics",topicsLead:"All sections at a glance",works:"writings",back:"← Back",chapters:"Chapters",prev:"← Previous",next:"Next →",
+  hint:"Drag a page corner or use the arrows to turn pages.",full:"Full screen",exit:"Exit",cont:"To be continued…",
+  langBtn:"മെയിൻ സൈറ്റ്",alt:"മലയാളത്തിൽ വായിക്കുക",entag:"English",
+  about:"About me",contact:"Contact",feedback:"Feedback",fbLead:"Your thoughts are valuable to us",
+  email:"Email",emailSoon:"Coming soon",emailBtn:"Send an email",waLead:"Send a message directly",waBtn:"Open WhatsApp",
+  fbBox:"Share your thoughts",fbBoxLead:"Comments and suggestions about the writings",fbBtn:"Feedback form",
+  fName:"Name",fContact:"Email or phone (optional)",fMsg:"Your message",fSend:"Send",fSending:"Sending…",
+  fThanks:"Thank you! Your message has been received.",fFail:"Could not send. Please try again",fViaWa:"or reach us on WhatsApp",fSoon:"The form will be active soon.",
+  nextCh:d=>`Next chapter ${d?"on "+d:"coming soon"}`,soFar:(a,b)=>`${a} of ${b} chapters published so far.`}};
+let LANG="ml";
+const t=k=>T[LANG][k];
 const catOf=id=>CATS.find(c=>c.id===id)||CATS[0];
+const cname=c=>LANG=="en"?c.en:c.name, clead=c=>LANG=="en"?c.elead:c.lead;
+const subName=(c,s)=>LANG=="en"&&c.esubs?c.esubs[c.subs.indexOf(s)]||s:s;
 const gv=c=>`--g1:${c.g[0]}`;
 const $=s=>document.querySelector(s);
-const esc=t=>String(t||"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const esc=x=>String(x||"").replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const strip=h=>h.replace(/<[^>]+>/g," ");
 const MONTHS=["ജനുവരി","ഫെബ്രുവരി","മാർച്ച്","ഏപ്രിൽ","മേയ്","ജൂൺ","ജൂലൈ","ഓഗസ്റ്റ്","സെപ്റ്റംബർ","ഒക്ടോബർ","നവംബർ","ഡിസംബർ"];
 const fmtDate=d=>{const [y,m,dd]=d.split("-");return `${+dd} ${MONTHS[+m-1]} ${y}`};
 const ARR=`<svg width="16" height="16"><use href="#arr"/></svg>`;
 const LEAF=`<svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>`;
 
-const ITEMS=[
- ...L.flipbooks.map(f=>({kind:"f",id:f.id,title:f.title,desc:f.desc,cat:"books",f,date:""})),
- ...L.books.map(b=>({kind:"b",id:b.id,title:b.title,desc:b.desc,cat:"books",b,date:""})),
- ...L.articles.map(a=>({kind:"a",id:a.id,title:a.title,desc:a.desc,cat:a.cat,sub:a.sub,a,date:a.date}))];
+/* രണ്ട് ഭാഷയ്ക്കും വെവ്വേറെ രചനാ പട്ടിക */
+const mkA=(a,en,inEn)=>({kind:"a",id:a.id,cat:a.cat,sub:a.sub,date:a.date,a,author:a.author,info:a.author_info,lang:a.lang,
+ title:en?a.title_en||a.title:a.title,desc:en?a.desc_en:a.desc,html:en?a.html_en||a.html:a.html,enTag:!inEn&&a.lang=="en",alt:a.lang=="both"});
+const ALL={
+ ml:[...L.flipbooks.map(f=>({kind:"f",id:f.id,title:f.title,desc:f.desc,cat:"books",f,date:"",enTag:f.lang=="en"})),
+  ...L.books.map(b=>({kind:"b",id:b.id,title:b.title,desc:b.desc,cat:"books",b,date:"",enTag:b.lang=="en"})),
+  ...L.articles.map(a=>mkA(a,a.lang=="en"))],
+ en:[...L.flipbooks.filter(f=>f.lang=="en").map(f=>({kind:"f",id:f.id,title:f.title,desc:f.desc,cat:"books",f,date:""})),
+  ...L.books.filter(b=>b.lang=="en").map(b=>({kind:"b",id:b.id,title:b.title,desc:b.desc,cat:"books",b,date:""})),
+  ...L.articles.filter(a=>a.lang=="en"||a.lang=="both").map(a=>mkA(a,true,true))]};
+let ITEMS=ALL.ml;
 const words=h=>strip(h).split(/\s+/).filter(Boolean).length;
-const mins=it=>it.kind=="a"?Math.max(1,Math.round(words(it.a.html)/120)):it.kind=="b"?Math.max(1,Math.round(it.b.chapters.reduce((s,c)=>s+words(c.html),0)/120)):0;
-const metaOf=it=>it.kind=="f"?`${it.f.pages.length} പേജുകൾ`:it.kind=="b"?`${it.b.chapters.length} അധ്യായങ്ങൾ · ${mins(it)} മിനിറ്റ്`:`${mins(it)} മിനിറ്റ്`;
+const mins=it=>it.kind=="a"?Math.max(1,Math.round(words(it.html)/(LANG=="en"?200:120))):it.kind=="b"?Math.max(1,Math.round(it.b.chapters.reduce((s,c)=>s+words(c.html),0)/120)):0;
 const sortKey=i=>i.date?i.date.replace(/-/g,"")+i.id.slice(8):i.id;
-const kindName=i=>i.kind=="f"?"ചിത്ര പുസ്തകം":i.kind=="b"?"പുസ്തകം":"ലേഖനം";
+const kindName=i=>t(i.kind=="f"?"kf":i.kind=="b"?"kb":"ka");
+const byLine=i=>i.author?`${t("by")}: ${esc(i.author)}${i.info?` (${esc(i.info)})`:""}`:"";
 
 let cur="home",mode="cat",sub=null,q="",fs=19,it=null,ch=0,pf=null;
 try{fs=+localStorage.getItem("fs")||19}catch(e){}
 
-/* ---- brand, hero, footer ---- */
+/* ---- brand, footer ---- */
 const logoHTML=src=>src?`<img src="${esc(src)}" alt="">`:`<svg viewBox="0 0 100 100"><use href="#ph"/></svg>`;
 $("#logo").innerHTML=logoHTML(S.logo);
 $("#flogo").innerHTML=logoHTML(S.logo_footer||S.logo);
 $("#sname").textContent=S.site_name;$("#stag").textContent=S.tagline;
-$("#h1a").textContent=S.hero_line1;$("#h1b").textContent=S.hero_line2;
-$("#htx").textContent=S.hero_text;$("#ctat").textContent=S.hero_button;
 if(S.hero_image){$("#himg").innerHTML=`<img src="${esc(S.hero_image)}" alt="">`+[[62,70,0],[70,58,1.6],[78,66,3.1],[66,50,4.4],[74,74,5.5]].map(([x,y,d])=>`<span class="mote" style="left:${x}%;top:${y}%;animation-delay:${d}s"></span>`).join("")}
 $("#copy").textContent=`© ${new Date().getFullYear()} abuminha - all rights reserved`;
 
@@ -496,17 +552,28 @@ const SOC=[
 const socLink=k=>{const v=String(S[k]||"").trim();if(!v)return"";if(k=="whatsapp")return"https://wa.me/"+v.replace(/\D/g,"");return /^https?:/.test(v)?v:"https://"+v};
 $("#soc").innerHTML=SOC.map(([k,n,svg])=>{const h=socLink(k);return `<a ${h?`href="${esc(h)}" target="_blank" rel="noopener"`:`href="#home" onclick="return false"`} aria-label="${n}" title="${n}"><svg viewBox="0 0 40 40">${svg}</svg></a>`}).join("");
 
-/* ---- nav ---- */
-const NAV=[{id:"home",name:"Home"},...CATS];
-$("#nav").innerHTML=NAV.map(c=>`<button data-go="${c.id=="home"?"home":"c-"+c.id}" data-k="${c.id}">${c.id=="home"?`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg>`:""}${c.name}</button>`).join("");
-const setNav=k=>document.querySelectorAll("#nav button").forEach(b=>b.setAttribute("aria-current",b.dataset.k===k));
+/* ---- ഭാഷ മാറ്റുമ്പോൾ ---- */
+const setNav=k=>document.querySelectorAll("#nav button[data-k]").forEach(b=>b.setAttribute("aria-current",b.dataset.k===k));
 const menu=on=>{$("#nav").classList.toggle("open",on);$("#mbtn").setAttribute("aria-expanded",on);document.body.style.overflow=on?"hidden":""};
+function applyLang(){
+ const en=LANG=="en";ITEMS=ALL[LANG];
+ document.documentElement.lang=en?"en":"ml";document.body.classList.toggle("en",en);
+ document.title=en?`${S.site_name} · English`:`${S.site_name} ${S.tagline}`;
+ $("#nav").innerHTML=[{id:"home"},...CATS].map(c=>`<button data-go="${c.id=="home"?"home":"c-"+c.id}" data-k="${c.id}">${c.id=="home"?`<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 2 11.5h3V21h5.5v-6h3v6H19v-9.5h3z"/></svg>${t("home")}`:cname(c)}</button>`).join("")
+  +`<button class="lg" data-lang>${t("langBtn")}</button>`;
+ $("#lbtn").textContent=t("langBtn");
+ document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+ document.querySelectorAll("[data-tp]").forEach(e=>e.placeholder=t(e.dataset.tp));
+ $("#ffs").innerHTML=`⛶<i> ${t("full")}</i>`;
+ $("#h1a").textContent=en?S.hero_line1_en||"My Words":S.hero_line1;$("#h1b").textContent=en?S.hero_line2_en||"& Sketches":S.hero_line2;
+ $("#htx").textContent=en?S.hero_text_en||"":S.hero_text;$("#ctat").textContent=en?S.hero_button_en||"Start reading":S.hero_button;
+ buildSlider()}
 
 /* ---- cards ---- */
 const card=(i,n)=>{const k=catOf(i.cat);
  const th=i.kind=="f"?`<span class="th" style="background-image:url('${i.f.pages[0].src}')"></span>`:"";
- return `<button class="card reveal" style="${gv(k)};--d:${(n%4)*.09}s" data-go="${i.kind}-${i.id}">${LEAF}
- <small><em>${kindName(i)}</em>${esc(i.sub||k.name)}</small>${th}<h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p><span class="go">${ARR}</span></button>`};
+ return `<button class="card reveal${i.enTag?" isen":""}" style="${gv(k)};--d:${(n%4)*.09}s" data-go="${i.kind}-${i.id}">${LEAF}
+ <small><em>${kindName(i)}</em>${esc(subName(k,i.sub)||cname(k))}${i.enTag?`<b class="entag">${t("entag")}</b>`:""}</small>${th}<h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p>${i.author?`<span class="by">✍ ${byLine(i)}</span>`:""}<span class="go">${ARR}</span></button>`};
 
 /* ---- reveal on scroll ---- */
 const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"}):null;
@@ -516,11 +583,11 @@ const watch=()=>document.querySelectorAll(".view.on .reveal:not(.in),.view.on [d
 let sIdx=0,sTimer=null,sPer=3,sN=0;
 function buildSlider(){
  const pop=(S.popular||[]).map(id=>ITEMS.find(i=>i.kind=="a"&&i.id==id)).filter(Boolean);
- sN=pop.length;$("#popsec").style.display=sN?"":"none";if(!sN)return;
- $("#track").innerHTML=pop.map((i,n)=>`<button class="slide t${n%3}" data-go="a-${i.id}">${LEAF}<small>${esc(i.sub||catOf(i.cat).name)}</small><h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p><span class="go">${ARR}</span></button>`).join("");
+ sN=pop.length;sIdx=0;$("#popsec").style.display=sN?"":"none";$("#track").innerHTML="";if(!sN)return;
+ $("#track").innerHTML=pop.map((i,n)=>{const k=catOf(i.cat);return `<button class="slide t${n%3}" data-go="a-${i.id}">${LEAF}<small>${esc(subName(k,i.sub)||cname(k))}</small><h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p><span class="go">${ARR}</span></button>`}).join("");
  layoutSlider()}
-function layoutSlider(){
- sPer=innerWidth<=600?1:innerWidth<=1060?2:3;
+function layoutSlider(){if(!sN)return;
+ sPer=innerWidth<=600?1:innerWidth<=1180?2:3;
  const pages=Math.max(1,sN-sPer+1);sIdx=Math.min(sIdx,pages-1);
  $("#dots").innerHTML=pages>1?Array.from({length:pages},(_,j)=>`<button aria-label="${j+1}" aria-current="${j==sIdx}" data-dot="${j}"></button>`).join(""):"";
  $("#sctl").style.display=pages>1?"":"none";
@@ -543,74 +610,78 @@ function show(v){document.querySelectorAll(".view").forEach(e=>e.classList.toggl
 
 function home(){cur="home";setNav("home");
  const latest=[...ITEMS].sort((a,b)=>sortKey(b).localeCompare(sortKey(a))).slice(0,8);
- $("#latest").innerHTML=latest.length?latest.map(card).join(""):`<div class="empty">രചനകൾ ഉടൻ വരുന്നു.</div>`;
+ $("#latest").innerHTML=latest.length?latest.map(card).join(""):`<div class="empty">${t("soonAll")}</div>`;
  show("v-home");layoutSlider()}
 
 function list(){
  const c=mode=="cat"?catOf(cur):null;setNav(c?c.id:"");show("v-list");
  $("#lhead").setAttribute("style",c?gv(c):"--g1:#c9a25a");$("#subs").setAttribute("style",c?gv(c):"");
- $("#subs").innerHTML=c&&c.subs?[`<button class="sub" aria-pressed="${!sub}" data-sub="">എല്ലാം</button>`,...c.subs.map(s=>`<button class="sub" aria-pressed="${sub===s}" data-sub="${s}">${s}</button>`)].join(""):"";
- $("#ctitle").textContent=c?c.name:mode=="all"?"ലേഖനങ്ങൾ":"തിരയുക";
- $("#clead").textContent=c?c.lead:mode=="all"?"എല്ലാ ലേഖനങ്ങളും — ഏറ്റവും പുതിയത് ആദ്യം":"പുസ്തകങ്ങളിലും ലേഖനങ്ങളിലും തിരയാം";
+ $("#subs").innerHTML=c&&c.subs?[`<button class="sub" aria-pressed="${!sub}" data-sub="">${t("all")}</button>`,...c.subs.map(s=>`<button class="sub" aria-pressed="${sub===s}" data-sub="${s}">${subName(c,s)}</button>`)].join(""):"";
+ $("#ctitle").textContent=c?cname(c):mode=="all"?t("arts"):t("search");
+ $("#clead").textContent=c?clead(c):mode=="all"?t("artsLead"):t("searchLead");
  renderGrid();if(mode=="search")setTimeout(()=>$("#q").focus(),60)}
 function renderGrid(){
- const rows=ITEMS.filter(i=>(mode=="cat"?i.cat==cur&&(!sub||i.sub==sub):mode=="all"?i.kind=="a":true)&&(!q||(i.title+" "+i.desc+" "+(i.a?strip(i.a.html):"")).includes(q)))
+ const rows=ITEMS.filter(i=>(mode=="cat"?i.cat==cur&&(!sub||i.sub==sub):mode=="all"?i.kind=="a":true)&&(!q||(i.title+" "+i.desc+" "+(i.author||"")+" "+(i.html?strip(i.html):"")).toLowerCase().includes(q.toLowerCase())))
   .sort((a,b)=>sortKey(b).localeCompare(sortKey(a)));
- $("#grid").innerHTML=rows.length?rows.map(card).join(""):`<div class="empty">${q?"ഈ തിരച്ചിലിന് രചനകളൊന്നും കണ്ടില്ല.":mode=="search"?"മുകളിൽ ഒരു വാക്ക് ടൈപ്പ് ചെയ്യുക.":"ഈ വിഭാഗത്തിൽ രചനകൾ ഉടൻ വരുന്നു."}</div>`;
+ $("#grid").innerHTML=rows.length?rows.map(card).join(""):`<div class="empty">${q?t("noHit"):mode=="search"?t("typeWord"):t("soonCat")}</div>`;
  requestAnimationFrame(watch)}
 
 function topics(){cur="topics";setNav("");show("v-topics");
- $("#topics").innerHTML=CATS.map((c,n)=>`<button class="topic reveal" style="${gv(c)};--d:${(n%4)*.08}s" data-go="c-${c.id}"><b>${c.name}</b><span>${c.lead}</span><em>${ITEMS.filter(i=>i.cat==c.id).length} രചനകൾ →</em></button>`).join("");
+ $("#topics").innerHTML=CATS.map((c,n)=>`<button class="topic reveal" style="${gv(c)};--d:${(n%4)*.08}s" data-go="c-${c.id}"><b>${cname(c)}</b><span>${clead(c)}</span><em>${ITEMS.filter(i=>i.cat==c.id).length} ${t("works")} →</em></button>`).join("");
  requestAnimationFrame(watch)}
 
 function page(p){cur=p;setNav("");
- const email=String(S.email||"").trim(),wa=socLink("whatsapp");
- if(p=="about"){$("#ptitle").textContent="എന്നെക്കുറിച്ച്";$("#plead").textContent="About me";
-  $("#pbody").innerHTML=`<div class="prose">${S.about||"<p>ഉടൻ വരുന്നു.</p>"}</div>`}
- else if(p=="contact"){$("#ptitle").textContent="ബന്ധപ്പെടുക";$("#plead").textContent="Contact us";
+ const email=String(S.email||"").trim(),wa=socLink("whatsapp"),en=LANG=="en";
+ if(p=="about"){$("#ptitle").textContent=t("about");$("#plead").textContent=en?"":"About me";
+  $("#pbody").innerHTML=`<div class="prose">${(en&&S.about_en)||S.about||"<p>…</p>"}</div>`}
+ else if(p=="contact"){$("#ptitle").textContent=t("contact");$("#plead").textContent=en?"":"Contact us";
   $("#pbody").innerHTML=`<div class="cbox">
-   <div class="cb" style="--g1:#0e2c47"><b>ഇമെയിൽ</b><span>${email?esc(email):"ഉടൻ ചേർക്കും"}</span><a class="btn" ${email?`href="mailto:${esc(email)}"`:'aria-disabled="true"'}>ഇമെയിൽ അയക്കുക</a></div>
-   <div class="cb" style="--g1:#1fa855"><b>WhatsApp</b><span>നേരിട്ട് സന്ദേശം അയക്കാം</span><a class="btn wa" ${wa?`href="${esc(wa)}" target="_blank" rel="noopener"`:'aria-disabled="true"'}>WhatsApp തുറക്കുക</a></div>
-   <div class="cb" style="--g1:#7c1150"><b>അഭിപ്രായം അറിയിക്കാൻ</b><span>രചനകളെക്കുറിച്ചുള്ള അഭിപ്രായങ്ങളും നിർദ്ദേശങ്ങളും</span><button class="btn" data-go="feedback" style="background:#7c1150">ഫീഡ്ബാക്ക് ഫോം</button></div></div>
+   <div class="cb" style="--g1:#0e2c47"><b>${t("email")}</b><span>${email?esc(email):t("emailSoon")}</span><a class="btn" ${email?`href="mailto:${esc(email)}"`:'aria-disabled="true"'}>${t("emailBtn")}</a></div>
+   <div class="cb" style="--g1:#1fa855"><b>WhatsApp</b><span>${t("waLead")}</span><a class="btn wa" ${wa?`href="${esc(wa)}" target="_blank" rel="noopener"`:'aria-disabled="true"'}>${t("waBtn")}</a></div>
+   <div class="cb" style="--g1:#7c1150"><b>${t("fbBox")}</b><span>${t("fbBoxLead")}</span><button class="btn" data-go="feedback" style="background:#7c1150">${t("fbBtn")}</button></div></div>
    <div class="soc" style="justify-content:center;padding-bottom:70px">${$("#soc").innerHTML}</div>`}
- else{$("#ptitle").textContent="ഫീഡ്ബാക്ക്";$("#plead").textContent="നിങ്ങളുടെ അഭിപ്രായങ്ങൾ ഞങ്ങൾക്ക് വിലപ്പെട്ടതാണ്";
+ else{$("#ptitle").textContent=t("feedback");$("#plead").textContent=t("fbLead");
   $("#pbody").innerHTML=`<form class="fb" id="fb">
-   <label>പേര്<input name="name" required maxlength="80"></label>
-   <label>ഇമെയിൽ അല്ലെങ്കിൽ ഫോൺ (വേണമെങ്കിൽ)<input name="contact" maxlength="120"></label>
-   <label>നിങ്ങളുടെ അഭിപ്രായം<textarea name="message" required maxlength="4000"></textarea></label>
+   <label>${t("fName")}<input name="name" required maxlength="80"></label>
+   <label>${t("fContact")}<input name="contact" maxlength="120"></label>
+   <label>${t("fMsg")}<textarea name="message" required maxlength="4000"></textarea></label>
    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-   <button class="btn" type="submit">അയക്കുക</button><div id="fbmsg"></div></form>`;
+   <button class="btn" type="submit">${t("fSend")}</button><div id="fbmsg"></div></form>`;
+  const waLink=wa?` <a href="${esc(wa)}" target="_blank" rel="noopener">WhatsApp</a>`:"";
   $("#fb").addEventListener("submit",async e=>{e.preventDefault();const f=e.target,m=$("#fbmsg"),b=f.querySelector("button");
    if(f._honey.value)return;
-   if(!email){m.innerHTML=`<p class="msg">ഫോം ഉടൻ പ്രവർത്തനക്ഷമമാകും. ${wa?`അതുവരെ <a href="${esc(wa)}" target="_blank" rel="noopener">WhatsApp</a> വഴി അറിയിക്കാം.`:""}</p>`;return}
-   b.disabled=true;b.textContent="അയക്കുന്നു…";
+   if(!email){m.innerHTML=`<p class="msg">${t("fSoon")}${waLink}</p>`;return}
+   b.disabled=true;b.textContent=t("fSending");
    try{const r=await fetch("https://formsubmit.co/ajax/"+encodeURIComponent(email),{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
-     body:JSON.stringify({_subject:"abuminha ഫീഡ്ബാക്ക്: "+f.name.value,name:f.name.value,contact:f.contact.value,message:f.message.value,_template:"table"})});
-    if(!r.ok)throw 0;f.reset();m.innerHTML=`<p class="msg">നന്ദി! നിങ്ങളുടെ അഭിപ്രായം ലഭിച്ചു.</p>`}
-   catch(err){m.innerHTML=`<p class="msg">അയക്കാൻ കഴിഞ്ഞില്ല. ഒന്നുകൂടി ശ്രമിക്കുക${wa?`, അല്ലെങ്കിൽ <a href="${esc(wa)}" target="_blank" rel="noopener">WhatsApp</a> വഴി അറിയിക്കുക`:""}.</p>`}
-   b.disabled=false;b.textContent="അയക്കുക"})}
+     body:JSON.stringify({_subject:"abuminha feedback: "+f.name.value,name:f.name.value,contact:f.contact.value,message:f.message.value,language:LANG,_template:"table"})});
+    if(!r.ok)throw 0;f.reset();m.innerHTML=`<p class="msg">${t("fThanks")}</p>`}
+   catch(err){m.innerHTML=`<p class="msg">${t("fFail")}${wa?`, ${t("fViaWa")}:${waLink}`:"."}</p>`}
+   b.disabled=false;b.textContent=t("fSend")})}
  show("v-page")}
 
 function readText(kind,id,n){
  it=ITEMS.find(i=>i.kind==kind&&i.id==id);if(!it)return home();
  cur=it.cat;mode="cat";setNav(it.cat);show("v-read");
  const k=catOf(it.cat);$("#v-read").setAttribute("style",gv(k));
- const chs=kind=="b"?it.b.chapters:[{t:"",html:it.a.html}];
+ $("#v-read").classList.toggle("enread",LANG=="en"||!!it.enTag);
+ const chs=kind=="b"?it.b.chapters:[{t:"",html:it.html}];
  ch=Math.max(0,Math.min(n||0,chs.length-1));const multi=chs.length>1;
  const wide=innerWidth>820;
  $("#tocbox").style.display=multi&&wide?"block":"none";
+ $(".rgrid").classList.toggle("one",!(multi&&wide));
  $("#selchap").style.display=multi&&!wide?"block":"none";
  $("#rtitle").textContent=it.title;
  $("#toc").innerHTML=chs.map((c,j)=>`<button data-ch="${j}" aria-current="${j===ch}">${esc(c.t)}</button>`).join("");
  $("#selchap").innerHTML=chs.map((c,j)=>`<option value="${j}" ${j===ch?"selected":""}>${esc(c.t)}</option>`).join("");
- $("#rmeta").innerHTML=`<span class="pill">${esc(it.sub||k.name)}</span><span>${kind=="b"?`പുസ്തകം · ${chs.length} അധ്യായങ്ങൾ`:"ലേഖനം"}</span><span>${mins(it)} മിനിറ്റ് വായന</span>`;
+ $("#rmeta").innerHTML=`<span class="pill">${esc(subName(k,it.sub)||cname(k))}</span><span>${kind=="b"?`${t("kb")} · ${chs.length} ${t("chs")}`:t("ka")}</span><span>${mins(it)} ${t("minRead")}</span>${it.author?`<span class="by">✍ ${byLine(it)}</span>`:""}`;
+ $("#ralt").innerHTML=it.alt?`<button class="altbtn" data-abs="${LANG=="en"?"":"en:"}a-${it.id}">${t("alt")} →</button>`:"";
  const c=chs[ch];
  $("#art").innerHTML=`${c.t?`<h2>${esc(c.t)}</h2>`:""}${c.html}`;
  $("#art").style.setProperty("--fs",fs+"px");
  const pv=chs[ch-1],nx=chs[ch+1];
- $("#pager").innerHTML=multi?`${pv?`<button data-ch="${ch-1}"><small>← മുമ്പത്തേത്</small>${esc(pv.t)}</button>`:"<span></span>"}${nx?`<button data-ch="${ch+1}"><small>അടുത്തത് →</small>${esc(nx.t)}</button>`:"<span></span>"}`:"";
+ $("#pager").innerHTML=multi?`${pv?`<button data-ch="${ch-1}"><small>${t("prev")}</small>${esc(pv.t)}</button>`:"<span></span>"}${nx?`<button data-ch="${ch+1}"><small>${t("next")}</small>${esc(nx.t)}</button>`:"<span></span>"}`:"";
  const last=kind=="b"&&ch==chs.length-1&&it.b.total>chs.length;
- $("#soon").innerHTML=last?`<b>അടുത്ത അധ്യായം ${it.b.next?fmtDate(it.b.next)+"-ന്":"ഉടൻ"} വരുന്നു</b><span>ഇതുവരെ ${chs.length} / ${it.b.total} അധ്യായങ്ങൾ പ്രസിദ്ധീകരിച്ചു.</span>`:"";
+ $("#soon").innerHTML=last?`<b>${T[LANG].nextCh(it.b.next)}</b><span>${T[LANG].soFar(chs.length,it.b.total)}</span>`:"";
  $("#soon").style.display=last?"":"none";
 }
 
@@ -619,7 +690,7 @@ function readFlip(id){
  cur="books";mode="cat";setNav("books");show("v-flip");
  const f=it.f,k=catOf("books");$("#v-flip").setAttribute("style",gv(k));
  $("#ftitle").textContent=it.title;
- $("#fmeta").innerHTML=`<span class="pill">ചിത്ര പുസ്തകം</span><span>${f.pages.length} / ${f.total} പേജുകൾ</span>`;
+ $("#fmeta").innerHTML=`<span class="pill">${t("kf")}</span><span>${f.pages.length} / ${f.total} ${t("pages")}</span>`;
  $("#adm").style.display="none";isAdmin().then(ok=>{if(ok)$("#adm").style.display="block"});
  buildFlip(0);
 }
@@ -628,7 +699,7 @@ function buildFlip(start){
  if(pf){try{pf.destroy()}catch(e){}pf=null}
  const st=$("#stage");st.innerHTML="";const host=document.createElement("div");st.appendChild(host);
  host.innerHTML=f.pages.map((p,j)=>`<div class="pg" data-density="${j==0?"hard":"soft"}"><div class="pgi" style="background-image:url('${p.src}')"></div></div>`).join("")
-  +(more?`<div class="pg"><div class="pgsoon" style="${gv(k)}"><b>തുടരും…</b><span>${esc(f.note)}</span><small>ഇതുവരെ ${f.pages.length} / ${f.total} പേജുകൾ</small></div></div>`:"");
+  +(more?`<div class="pg"><div class="pgsoon" style="${gv(k)}"><b>${t("cont")}</b><span>${esc(f.note)}</span><small>${f.pages.length} / ${f.total} ${t("pages")}</small></div></div>`:"");
  const W=f.pages[0].w,H=f.pages[0].h,full=$("#v-flip").classList.contains("full");
  const spread=innerWidth>760;
  const par=st.parentElement,cs=getComputedStyle(par);
@@ -648,7 +719,7 @@ function buildFlip(start){
 function toggleFull(on){
  const v=$("#v-flip"),start=pf?pf.getCurrentPageIndex():0;
  v.classList.toggle("full",on);
- $("#ffs").innerHTML=on?"✕<i> പുറത്തുകടക്കുക</i>":"⛶<i> മുഴുവൻ സ്ക്രീൻ</i>";
+ $("#ffs").innerHTML=on?`✕<i> ${t("exit")}</i>`:`⛶<i> ${t("full")}</i>`;
  try{if(on&&!document.fullscreenElement&&v.requestFullscreen)v.requestFullscreen().catch(()=>{});if(!on&&document.fullscreenElement)document.exitFullscreen().catch(()=>{})}catch(e){}
  setTimeout(()=>buildFlip(start),180);
 }
@@ -698,9 +769,11 @@ let r;addEventListener("resize",()=>{clearTimeout(r);r=setTimeout(()=>b(pf.getCu
  catch(e){b.textContent="പിശക് — വീണ്ടും ശ്രമിക്കുക"}
  setTimeout(()=>{b.textContent=label;b.disabled=false},3500)}
 
-/* ---- routing ---- */
+/* ---- routing: ഇംഗ്ലീഷ് പേജുകൾ #en:... ---- */
 function route(){
- const h=decodeURIComponent(location.hash.slice(1));
+ let h=decodeURIComponent(location.hash.slice(1));
+ const L2=h.startsWith("en:")?"en":"ml";if(L2=="en")h=h.slice(3);
+ if(L2!=LANG||!document.body.dataset.ready){LANG=L2;document.body.dataset.ready=1;sub=null;q="";$("#q").value="";applyLang()}
  const [kind,id,n]=h.split("-");
  if(kind=="a"||kind=="b")readText(kind,id,+n||0);
  else if(kind=="f")readFlip(id);
@@ -710,25 +783,28 @@ function route(){
  else if(["about","contact","feedback"].includes(h))page(h);
  else home();
 }
-const go=h=>{if(location.hash==="#"+h)route();else location.hash=h};
+const setHash=h=>{if(location.hash==="#"+h)route();else location.hash=h};
+const go=h=>setHash((LANG=="en"?"en:":"")+h);
 
 document.addEventListener("click",e=>{
- const t=e.target.nodeType===1&&e.target.closest("button,a");if(!t)return;
- if(t.dataset.go){go(t.dataset.go)}
- else if(t.dataset.sub!==undefined){sub=t.dataset.sub||null;list()}
- else if(t.dataset.ch!==undefined){go(`${it.kind}-${it.id}-${t.dataset.ch}`)}
- else if(t.dataset.dot!==undefined){moveSlider(+t.dataset.dot);autoplay()}
- else if(t.id=="sprev"){moveSlider(sIdx-1);autoplay()}
- else if(t.id=="snext"){moveSlider(sIdx+1);autoplay()}
- else if(t.id=="cta"){$(".latest").scrollIntoView({behavior:"smooth"})}
- else if(t.id=="sbtn"){go("search")}
- else if(t.id=="mbtn"){menu(!$("#nav").classList.contains("open"))}
- else if(t.hasAttribute("data-back")){go(cur=="home"||cur=="all"||cur=="search"?cur:"c-"+cur)}
- else if(t.id=="fprev"&&pf)pf.flipPrev();
- else if(t.id=="fnext"&&pf)pf.flipNext();
- else if(t.id=="offdl")offline();
- else if(t.closest("#ffs"))toggleFull(!$("#v-flip").classList.contains("full"));
- else if(t.id=="fsm"||t.id=="fsp"){fs=Math.max(15,Math.min(28,fs+(t.id=="fsp"?2:-2)));$("#art").style.setProperty("--fs",fs+"px");try{localStorage.setItem("fs",fs)}catch(e){}}
+ const el=e.target.nodeType===1&&e.target.closest("button,a");if(!el)return;
+ if(el.dataset.go){go(el.dataset.go)}
+ else if(el.dataset.abs!==undefined){setHash(el.dataset.abs||"home")}
+ else if(el.hasAttribute("data-lang")||el.id=="lbtn"){setHash(LANG=="en"?"home":"en:home")}
+ else if(el.dataset.sub!==undefined){sub=el.dataset.sub||null;list()}
+ else if(el.dataset.ch!==undefined){go(`${it.kind}-${it.id}-${el.dataset.ch}`)}
+ else if(el.dataset.dot!==undefined){moveSlider(+el.dataset.dot);autoplay()}
+ else if(el.id=="sprev"){moveSlider(sIdx-1);autoplay()}
+ else if(el.id=="snext"){moveSlider(sIdx+1);autoplay()}
+ else if(el.id=="cta"){$(".latest").scrollIntoView({behavior:"smooth"})}
+ else if(el.id=="sbtn"){go("search")}
+ else if(el.id=="mbtn"){menu(!$("#nav").classList.contains("open"))}
+ else if(el.hasAttribute("data-back")){go(cur=="home"||cur=="all"||cur=="search"?cur:"c-"+cur)}
+ else if(el.id=="fprev"&&pf)pf.flipPrev();
+ else if(el.id=="fnext"&&pf)pf.flipNext();
+ else if(el.id=="offdl")offline();
+ else if(el.closest("#ffs"))toggleFull(!$("#v-flip").classList.contains("full"));
+ else if(el.id=="fsm"||el.id=="fsp"){fs=Math.max(15,Math.min(28,fs+(el.id=="fsp"?2:-2)));$("#art").style.setProperty("--fs",fs+"px");try{localStorage.setItem("fs",fs)}catch(e){}}
 });
 $("#selchap").addEventListener("change",e=>go(`${it.kind}-${it.id}-${e.target.value}`));
 $("#q").addEventListener("input",e=>{q=e.target.value.trim();renderGrid()});
@@ -741,7 +817,7 @@ addEventListener("keydown",e=>{
 });
 /* കോപ്പി / സേവ് തടയൽ */
 ["contextmenu","copy","cut","dragstart","selectstart"].forEach(ev=>document.addEventListener(ev,e=>{const el=e.target.nodeType===1?e.target:e.target.parentElement;if(!editable(el))e.preventDefault()}));
-buildSlider();route();
+route();
 }
 </script>
 </body>

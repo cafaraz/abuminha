@@ -57,8 +57,15 @@ def build_articles():
         d, body = read_frontmatter(p)
         if not released(d):
             continue
+        lang = d.get("lang") or "ml"
+        if lang == "en":  # ഇംഗ്ലീഷ് മാത്രം: പ്രധാന ഉള്ളടക്കം ഇംഗ്ലീഷ് ഫീൽഡുകളിൽ നിന്ന്
+            body = d.get("body_en") or body
         out.append({
-            "id": p.stem, "title": d.get("title", ""), "desc": d.get("desc", ""),
+            "id": p.stem, "lang": lang,
+            "title": d.get("title") or d.get("title_en") or "", "desc": d.get("desc") or "",
+            "title_en": d.get("title_en") or "", "desc_en": d.get("desc_en") or "",
+            "html_en": md(d.get("body_en", "")) if lang != "ml" else "",
+            "author": str(d.get("author") or "").strip(), "author_info": str(d.get("author_info") or "").strip(),
             "cat": d.get("category", "islam"), "sub": d.get("sub") or "",
             "date": str(as_date(d.get("release_date")) or as_date(d.get("date")) or ""),
             "html": md(body),
@@ -80,7 +87,7 @@ def build_books():
             (as_date(c.get("release_date")) for c in chapters
              if c.get("publish") and as_date(c.get("release_date")) and not released(c)))
         out.append({
-            "id": p.stem, "title": d.get("title", ""), "desc": d.get("desc", ""),
+            "id": p.stem, "lang": d.get("lang") or "ml", "title": d.get("title", ""), "desc": d.get("desc", ""),
             "cover": d.get("cover") or "", "total": len(chapters),
             "next": str(upcoming[0]) if upcoming else "",
             "chapters": [{"t": c.get("title", ""), "html": md(c.get("body", ""))} for c in live],
@@ -115,7 +122,7 @@ def build_flipbooks():
         if not pages:
             continue
         out.append({
-            "id": p.stem, "title": d.get("title", ""), "desc": d.get("desc", ""),
+            "id": p.stem, "lang": d.get("lang") or "ml", "title": d.get("title", ""), "desc": d.get("desc", ""),
             "pages": pages, "total": doc.page_count,
             "note": d.get("note") or "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്.",
         })
@@ -138,6 +145,7 @@ def main():
     s = (yaml.safe_load(sp.read_text(encoding="utf-8")) or {}) if sp.exists() else {}
     s = {k: ("" if v is None else v) for k, v in s.items()}
     s["about"] = md(s.get("about", ""))
+    s["about_en"] = md(s.get("about_en", ""))
     s["popular"] = [str(x) for x in (s.get("popular") or [])][:6]
     for k in ("logo", "logo_footer", "hero_image"):
         s[k] = str(s.get(k) or "").lstrip("/")
