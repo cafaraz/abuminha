@@ -1,13 +1,18 @@
 site_name: അബുമിൻഹ
 tagline: എഴുത്തുപുര
-logo: ""
-logo_footer: ""
+logo: /uploads/logo-top.png
+logo_footer: /uploads/logo-bottom.png
 hero_line1: എന്റെ
 hero_line2: വരയും വരിയും
 hero_text: പലപ്പോഴായി എഴുതിയ എന്റെ ആശയങ്ങളും ആദർശങ്ങളും ലേഖനങ്ങളും ഇവിടെ
   നിങ്ങളുടെ മുൻപിൽ വെക്കുകയാണ്.
 hero_button: നിങ്ങളുടെ വായനക്ക്
-hero_image: /uploads/site/hero-sample.jpg
+hero_line1_en: My Words
+hero_line2_en: "& Sketches"
+hero_text_en: Ideas, convictions and writings I have penned over the years —
+  placed here before you.
+hero_button_en: Start reading
+hero_image: /uploads/middle_image.png
 popular:
   - "20261115100001"
   - "20261115100002"
@@ -38,8 +43,4 @@ about: >-
 
 
   നിങ്ങളുടെ അഭിപ്രായങ്ങളും നിർദ്ദേശങ്ങളും "ഫീഡ്‌ബാക്ക്" പേജ് വഴി അറിയിക്കാം.
-hero_line1_en: "My Words"
-hero_line2_en: "& Sketches"
-hero_text_en: "Ideas, convictions and writings I have penned over the years — placed here before you."
-hero_button_en: "Start reading"
 about_en: ""
