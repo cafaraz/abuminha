@@ -315,13 +315,15 @@ body.en .hero h1{line-height:1.05}
 @media(max-width:1180px){
  .mbtn{display:grid}
  .navrow{position:absolute;top:28px;right:max(4vw,18px);padding:0;gap:10px}
- .nav{display:none;position:fixed;left:0;right:0;top:0;bottom:0;z-index:50;background:rgba(14,44,71,.97);flex-direction:column;align-items:stretch;justify-content:center;gap:6px;padding:80px 10vw 40px}
+ .nav{display:none;position:fixed;left:0;right:0;top:0;bottom:0;z-index:50;background:rgba(14,44,71,.98);flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;gap:4px;padding:84px 10vw 30px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+ .nav>*:first-child{margin-top:auto}.nav>*:last-child{margin-bottom:auto}
  .nav.open{display:flex;animation:fadein .25s}
  .nav.open~.mbtn{position:relative;z-index:60;background:var(--gold)}
- .nav button{color:#fff;font-size:21px;justify-content:center;padding:14px}
+ .nav button{flex:none;color:#fff;font-size:clamp(16px,4.6vw,19px);justify-content:center;padding:10px 12px 8px;min-height:44px}
  .nav button:before{display:none}
  .nav button[aria-current=true]{background:var(--gold);color:var(--navy)}
- .nav .lg{display:flex;margin-top:14px;border:1.5px solid var(--gold);color:var(--gold2)}
+ .nav .lg{display:flex;margin-top:10px;border:1.5px solid var(--gold);color:var(--gold2)}
+ .nav .lg+.lg{margin-top:6px}
  .brand{padding:18px 250px 18px 0}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
  .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
