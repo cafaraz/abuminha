@@ -38,9 +38,24 @@ collections:
           - {label: "മലയാളം + ഇംഗ്ലീഷ്", value: both}
           - {label: "ഇംഗ്ലീഷ് മാത്രം", value: en}
         hint: "മലയാളം + ഇംഗ്ലീഷ് / ഇംഗ്ലീഷ് മാത്രം ആണെങ്കിൽ താഴെയുള്ള English ഫീൽഡുകൾ പൂരിപ്പിക്കുക."
-      - label: "വിഭാഗം"
+      - {label: "മറ്റേ ഭാഷാ വിഭാഗത്തിലും കാണിക്കുക", name: both_sections, widget: boolean, default: false, required: false, hint: "ഓൺ ആക്കിയാൽ: മലയാളം രചന English വിഭാഗത്തിലും, English രചന മലയാളം വിഭാഗത്തിലും കാണും. ഓഫ് ആണെങ്കിൽ സ്വന്തം ഭാഷയുടെ വിഭാഗത്തിൽ മാത്രം. (മലയാളം + ഇംഗ്ലീഷ് ലേഖനങ്ങൾ എപ്പോഴും രണ്ടിലും വരും.)"}
+      - label: "പ്രധാന വിഭാഗം"
         name: category
         widget: select
+        options:
+          - {label: "ഇസ്ലാം", value: islam}
+          - {label: "ആദർശം", value: aadarsham}
+          - {label: "രാഷ്ട്രീയം", value: politics}
+          - {label: "സമകാലികം", value: current}
+          - {label: "മൈ ഫാമിലി", value: family}
+          - {label: "അക്ഷരമുറ്റം (മറ്റുള്ളവരുടെ രചനകൾ)", value: kids}
+          - {label: "വചനാമൃതം", value: vachanam}
+      - label: "ഈ ടാബുകളിലും കാണിക്കുക (വേണമെങ്കിൽ)"
+        name: also
+        widget: select
+        multiple: true
+        required: false
+        hint: "ഈ ലേഖനം മറ്റു ടാബുകളിലും വരണമെങ്കിൽ ഇവിടെ തിരഞ്ഞെടുക്കുക (ഒന്നിലധികം ആകാം). നിറവും അടയാളവും പ്രധാന വിഭാഗത്തിന്റേതായിരിക്കും."
         options:
           - {label: "ഇസ്ലാം", value: islam}
           - {label: "ആദർശം", value: aadarsham}
@@ -85,6 +100,7 @@ collections:
         options:
           - {label: "മലയാളം", value: ml}
           - {label: "ഇംഗ്ലീഷ്", value: en}
+      - {label: "മറ്റേ ഭാഷാ വിഭാഗത്തിലും കാണിക്കുക", name: both_sections, widget: boolean, default: false, required: false, hint: "ഓൺ ആക്കിയാൽ: മലയാളം രചന English വിഭാഗത്തിലും, English രചന മലയാളം വിഭാഗത്തിലും കാണും. ഓഫ് ആണെങ്കിൽ സ്വന്തം ഭാഷയുടെ വിഭാഗത്തിൽ മാത്രം."}
       - {label: "പുസ്തകം പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ പുസ്തകം മുഴുവനായി മറഞ്ഞിരിക്കും."}
       - label: "അധ്യായങ്ങൾ"
         name: chapters
@@ -117,6 +133,7 @@ collections:
         options:
           - {label: "മലയാളം", value: ml}
           - {label: "ഇംഗ്ലീഷ്", value: en}
+      - {label: "മറ്റേ ഭാഷാ വിഭാഗത്തിലും കാണിക്കുക", name: both_sections, widget: boolean, default: false, required: false, hint: "ഓൺ ആക്കിയാൽ: മലയാളം രചന English വിഭാഗത്തിലും, English രചന മലയാളം വിഭാഗത്തിലും കാണും. ഓഫ് ആണെങ്കിൽ സ്വന്തം ഭാഷയുടെ വിഭാഗത്തിൽ മാത്രം."}
       - {label: "PDF ഫയൽ", name: pdf, widget: file, hint: "PDF സൈറ്റിൽ പരസ്യമാകില്ല. അനുവദിച്ച പേജുകൾ മാത്രം ചിത്രങ്ങളായി കാണിക്കും."}
       - {label: "എത്ര പേജുകൾ വരെ റിലീസ് ചെയ്യാം", name: pages, widget: number, value_type: int, min: 1, default: 1, hint: "ഉദാ: 45 എന്ന് കൊടുത്താൽ 1 മുതൽ 45 വരെ പേജുകൾ മാത്രം കാണിക്കും."}
       - {label: "ബാക്കി പേജുകളെക്കുറിച്ചുള്ള കുറിപ്പ്", name: note, widget: string, required: false, default: "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്."}

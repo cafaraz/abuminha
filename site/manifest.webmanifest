@@ -1,0 +1,16 @@
+{
+  "name": "അബുമിൻഹ എഴുത്തുപുര",
+  "short_name": "അബുമിൻഹ",
+  "description": "സി.എ. ഫറാസ് (അബുമിൻഹ) എഴുതിയ പുസ്തകങ്ങളും ലേഖനങ്ങളും",
+  "lang": "ml",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3ebdd",
+  "theme_color": "#0e2c47",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
