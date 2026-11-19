@@ -143,6 +143,14 @@ h1,h2,h3,h4,.hd{font-family:var(--hf)}
 .card p{position:relative;margin:0;color:var(--mut);font-size:14.5px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card .go{margin-top:auto;align-self:flex-end;width:34px;height:34px;border-radius:50%;background:var(--g1);color:#fff;display:grid;place-items:center;transition:transform .3s}
 .card:hover .go{transform:translateX(4px)}
+.card:before{z-index:2}
+.card .cimg{position:relative;display:block;margin:-26px -22px 16px;height:150px;background:#e9e2d4 center/cover no-repeat}
+.card .cimg+small{margin-top:2px}
+.slide .cimg{position:relative;display:block;margin:-26px -26px 16px;height:130px;background:#e9e2d4 center/cover no-repeat}
+.rfig{margin:22px 0 0;max-width:900px}
+.rfig img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px -18px rgba(0,0,0,.6);background:#e9e2d4}
+.rfig figcaption{font-size:13.5px;color:var(--mut);margin-top:8px;line-height:1.5}
+.page img{display:block;max-width:100%;height:auto;margin:20px auto;border-radius:10px}
 .card .th{position:relative;float:right;width:62px;height:84px;margin:-4px -4px 6px 10px;background:center/cover no-repeat;border-radius:3px;box-shadow:0 6px 12px -6px rgba(0,0,0,.5)}
 .more{display:block;margin:26px auto 0;border:1.5px solid var(--navy);background:none;color:var(--navy);font:700 16px/1 var(--hf);padding:14px 26px 12px;border-radius:999px}
 .reveal{opacity:0;transform:translateY(34px)}
@@ -469,7 +477,7 @@ body.en .hero h1{line-height:1.05}
  </div>
 
  <div class="view reader" id="v-read">
-  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div><div class="rdate" id="rdate"></div><div id="ralt"></div></div></div>
+  <div class="rban"><div class="wrap"><button class="back" data-back data-t="back"></button><h1 id="rtitle"></h1><div class="meta" id="rmeta"></div><div class="rdate" id="rdate"></div><div id="ralt"></div><figure class="rfig" id="rfig"></figure></div></div>
   <div class="wrap rgrid">
    <aside class="toc" id="tocbox"><h4 data-t="chapters"></h4><div id="toc"></div></aside>
    <div>
@@ -580,7 +588,7 @@ const inSite=(x,L)=>x.lang=="both"||x.both||(L=="en"?x.lang=="en":x.lang!="en");
 /* cl = ഉള്ളടക്കത്തിന്റെ ഭാഷ; tag = സൈറ്റിന്റെ ഭാഷയിൽ നിന്ന് വ്യത്യസ്തമാണെങ്കിൽ കാർഡിലെ അടയാളം */
 const langTag=(cl,L)=>cl==L?"":cl=="en"?"entag":"mltag";
 const mkA=(a,L)=>{const en=L=="en"?a.lang!="ml":a.lang=="en",cl=en?"en":"ml";
- return {kind:"a",id:a.id,cat:a.cat,cats:a.cats&&a.cats.length?a.cats:[a.cat],sub:a.sub,date:a.date,a,author:a.author,info:a.author_info,lang:a.lang,cl,tag:langTag(cl,L),
+ return {kind:"a",id:a.id,img:a.img||"",thumb:a.thumb||"",cap:a.cap||"",cat:a.cat,cats:a.cats&&a.cats.length?a.cats:[a.cat],sub:a.sub,date:a.date,a,author:a.author,info:a.author_info,lang:a.lang,cl,tag:langTag(cl,L),
  written:a.written||"",context:a.context||"",
  title:en?a.title_en||a.title:a.title||a.title_en,desc:en?a.desc_en||a.desc:a.desc,html:en?a.html_en||a.html:a.html,alt:a.lang=="both"}};
 const mkF=(f,L)=>({kind:"f",id:f.id,title:f.title,desc:f.desc,cat:"books",cats:["books"],f,date:"",cl:f.lang,tag:langTag(f.lang,L)});
@@ -636,7 +644,7 @@ function applyLang(){
 /* ---- cards ---- */
 const card=(i,n)=>{const k=catOf(i.cat);
  const th=i.kind=="f"?`<span class="th" style="background-image:url('${i.f.thumb||i.f.pages[0].src}')"></span>`:"";
- return `<button class="card reveal${i.cl=="en"?" isen":""}" style="${gv(k)};--d:${(n%4)*.09}s" data-go="${i.kind}-${i.id}">${LEAF}
+ return `<button class="card reveal${i.cl=="en"?" isen":""}" style="${gv(k)};--d:${(n%4)*.09}s" data-go="${i.kind}-${i.id}">${i.thumb?`<span class="cimg" style="background-image:url('${i.thumb}')"></span>`:LEAF}
  <small><em>${kindName(i)}</em>${esc(subName(k,i.sub)||cname(k))}${i.tag?`<b class="entag">${t(i.tag)}</b>`:""}${isOld(i.written)?`<b class="yr">🕰 ${i.written.slice(0,4)}</b>`:""}</small>${th}<h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p>${i.author?`<span class="by">✍ ${byLine(i)}</span>`:""}<span class="go">${ARR}</span></button>`};
 
 /* ---- reveal on scroll ---- */
@@ -648,7 +656,7 @@ let sIdx=0,sTimer=null,sPer=3,sN=0;
 function buildSlider(){
  const pop=(S.popular||[]).map(id=>ITEMS.find(i=>i.kind=="a"&&i.id==id)).filter(Boolean);
  sN=pop.length;sIdx=0;$("#popsec").style.display=sN?"":"none";$("#track").innerHTML="";if(!sN)return;
- $("#track").innerHTML=pop.map((i,n)=>{const k=catOf(i.cat);return `<button class="slide t${n%3}" data-go="a-${i.id}">${LEAF}<small>${esc(subName(k,i.sub)||cname(k))}</small><h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p><span class="go">${ARR}</span></button>`}).join("");
+ $("#track").innerHTML=pop.map((i,n)=>{const k=catOf(i.cat);return `<button class="slide t${n%3}" data-go="a-${i.id}">${i.thumb?`<span class="cimg" style="background-image:url('${i.thumb}')"></span>`:LEAF}<small>${esc(subName(k,i.sub)||cname(k))}</small><h3>${esc(i.title)}</h3><p>${esc(i.desc)}</p><span class="go">${ARR}</span></button>`}).join("");
  layoutSlider()}
 function layoutSlider(){if(!sN)return;
  sPer=innerWidth<=600?1:innerWidth<=1180?2:3;
@@ -754,6 +762,7 @@ function readText(kind,id,n){
  $(".rgrid").classList.toggle("one",!(multi&&wide));
  $("#selchap").style.display=multi&&!wide?"block":"none";
  $("#rtitle").textContent=it.title;
+ $("#rfig").innerHTML=it.img?`<img src="${it.img}" alt="${esc(it.title)}">${it.cap?`<figcaption>${esc(it.cap)}</figcaption>`:""}`:"";$("#rfig").style.display=it.img?"":"none";
  $("#toc").innerHTML=chs.map((c,j)=>`<button data-ch="${j}" aria-current="${j===ch}">${esc(c.t)}</button>`).join("");
  $("#selchap").innerHTML=chs.map((c,j)=>`<option value="${j}" ${j===ch?"selected":""}>${esc(c.t)}</option>`).join("");
  $("#rmeta").innerHTML=`<span class="pill">${esc(subName(k,it.sub)||cname(k))}</span><span>${kind=="b"?`${t("kb")} · ${chs.length} ${t("chs")}`:t("ka")}</span><span>${mins(it)} ${t("minRead")}</span>${it.author?`<span class="by">✍ ${byLine(it)}</span>`:""}`;

@@ -1,3 +1,4 @@
+import re
 """abuminha.com സൈറ്റ് നിർമ്മിക്കുന്ന സ്ക്രിപ്റ്റ്.
 
 content/ ഫോൾഡറിലെ ലേഖനങ്ങളും പുസ്തകങ്ങളും വായിച്ച്, പ്രസിദ്ധീകരിക്കാൻ
@@ -68,6 +69,42 @@ def read_frontmatter(path):
     return {}, raw
 
 
+RASTER = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def resized(src, width):
+    """uploads-ലെ ചിത്രം നിശ്ചിത വീതിയിലേക്ക് ചുരുക്കി img/<w>/ -ൽ വെക്കുന്നു. സൈറ്റിലെ പാത തിരികെ നൽകുന്നു."""
+    from PIL import Image, ImageOps
+    rel = str(src or "").strip().lstrip("/")
+    if not rel.startswith("uploads/"):
+        return src or ""
+    f = ROOT / rel
+    if not f.exists():
+        return ""
+    if f.suffix.lower() not in RASTER:
+        return rel
+    name = f"img/{width}/{f.relative_to(ROOT / 'uploads').with_suffix('.jpg').as_posix()}"
+    dst = OUT / name
+    if not dst.exists():
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        im = ImageOps.exif_transpose(Image.open(f))
+        if im.mode in ("RGBA", "LA", "P"):
+            im = im.convert("RGBA")
+            bg = Image.new("RGB", im.size, (255, 255, 255))
+            bg.paste(im, mask=im.split()[-1])
+            im = bg
+        im = im.convert("RGB")
+        if im.width > width:
+            im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
+        im.save(dst, quality=80, optimize=True, progressive=True)
+    return name
+
+
+def body_imgs(html):
+    """ലേഖനത്തിനിടയിലെ ചിത്രങ്ങളും ചുരുക്കുന്നു."""
+    return re.sub(r'src="(/?uploads/[^"]+)"', lambda m: f'src="{resized(m.group(1), 1200)}" loading="lazy"', html)
+
+
 def build_articles():
     out = []
     for p in sorted((ROOT / "content/articles").glob("*.md")):
@@ -83,12 +120,14 @@ def build_articles():
             "id": p.stem, "lang": lang, "both": bool(d.get("both_sections")), "cats": list(dict.fromkeys(cats)),
             "title": d.get("title") or d.get("title_en") or "", "desc": d.get("desc") or "",
             "title_en": d.get("title_en") or "", "desc_en": d.get("desc_en") or "",
-            "html_en": md(d.get("body_en", "")) if lang != "ml" else "",
+            "html_en": body_imgs(md(d.get("body_en", ""))) if lang != "ml" else "",
+            "img": resized(d.get("image"), 1200), "thumb": resized(d.get("image"), 480),
+            "cap": str(d.get("image_caption") or "").strip(),
             "written": written(d.get("written")), "context": str(d.get("context") or "").strip(),
             "author": str(d.get("author") or "").strip(), "author_info": str(d.get("author_info") or "").strip(),
             "cat": main, "sub": d.get("sub") or "",
             "date": str(as_date(d.get("release_date")) or as_date(d.get("date")) or ""),
-            "html": md(body),
+            "html": body_imgs(md(body)),
         })
     return out
 

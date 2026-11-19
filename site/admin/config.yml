@@ -74,6 +74,8 @@ collections:
       - {label: "എഴുതിയ തീയതി (പഴയ ലേഖനങ്ങൾക്ക് മാത്രം)", name: written, widget: string, required: false, pattern: ['^\s*\d{4}(-\d{1,2}(-\d{1,2})?)?\s*$', "2015, 2015-08, 2015-08-12 എന്നിങ്ങനെ എഴുതുക"], hint: "അറിയുന്നത്ര മാത്രം: വർഷം (2015), വർഷവും മാസവും (2015-08), അല്ലെങ്കിൽ മുഴുവൻ (2015-08-12). പുതിയ ലേഖനമാണെങ്കിൽ ഒഴിച്ചിടുക."}
       - {label: "എഴുതിയ സന്ദർഭം", name: context, widget: string, required: false, hint: "വേണമെങ്കിൽ മാത്രം. ഉദാ: 2018 പ്രളയകാലത്ത് എഴുതിയത്."}
       - {label: "ചെറിയ വിവരണം", name: desc, widget: text, required: false}
+      - {label: "ലേഖന ചിത്രം (വേണമെങ്കിൽ)", name: image, widget: image, required: false, hint: "തലക്കെട്ടിന് താഴെയും കാർഡിലും കാണും. ഏത് വലുപ്പത്തിലുള്ള ഫോട്ടോയും ചേർക്കാം — സൈറ്റ് തനിയെ ചെറുതാക്കും. വീതി കൂടിയ (landscape) ചിത്രങ്ങളാണ് നല്ലത്."}
+      - {label: "ചിത്രത്തിന്റെ അടിക്കുറിപ്പ് (വേണമെങ്കിൽ)", name: image_caption, widget: string, required: false}
       - {label: "പ്രസിദ്ധീകരിക്കുക", name: publish, widget: boolean, default: false, hint: "ഓഫ് ആണെങ്കിൽ വായനക്കാർക്ക് കാണില്ല (ഡ്രാഫ്റ്റ്)."}
       - {label: "റിലീസ് തീയതി", name: release_date, widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "DD-MM-YYYY", time_format: false, hint: "ഒഴിച്ചിട്ടാൽ ഉടനെ. ഭാവി തീയതി കൊടുത്താൽ ആ ദിവസം സ്വയം വരും."}
       - {label: "ഉള്ളടക്കം (മലയാളം)", name: body, widget: markdown, required: false}
