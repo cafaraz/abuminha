@@ -188,13 +188,17 @@ def build_flipbooks():
                 thumb = f"fb/{p.stem}/thumb.jpg"
         if not pages:
             continue
+        # ഫൈനൽ പേജ് എണ്ണം: അഡ്മിൻ കൊടുത്തത് (ഉദാ: 120 / 100+), ഇല്ലെങ്കിൽ PDF-ലെ പേജുകൾ
+        fin = str(d.get("final_pages") or "").strip()
+        total = fin or str(doc.page_count)
+        more = (fin != str(len(pages))) if fin else doc.page_count > len(pages)
         out.append({
             "id": p.stem, "lang": d.get("lang") or "ml", "both": bool(d.get("both_sections")),
             "title": d.get("title", ""), "desc": d.get("desc", ""),
-            "pages": pages, "thumb": thumb, "total": doc.page_count,
+            "pages": pages, "thumb": thumb, "total": total, "more": more,
             "note": d.get("note") or "ബാക്കി പേജുകൾ ഉടൻ വരുന്നു, ഇൻശാ അല്ലാഹ്.",
         })
-        print(f"ഫ്ലിപ്പ് ബുക്ക് {p.stem}: {len(pages)}/{doc.page_count} പേജുകൾ")
+        print(f"ഫ്ലിപ്പ് ബുക്ക് {p.stem}: {len(pages)}/{total} പേജുകൾ (PDF-ൽ {doc.page_count})")
     return out
 
 

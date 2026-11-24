@@ -2,7 +2,7 @@
 <html lang="ml">
 <head>
 <meta charset="utf-8">
-<meta name="color-scheme" content="light only">
+<meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#0e2c47">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
@@ -30,7 +30,7 @@
 @font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/anek-malayalam-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/anek-malayalam-malayalam-800-normal.woff2) format("woff2");unicode-range:U+0951-0952,U+0964-0965,U+0D00-0D7F,U+1CDA,U+1CF2,U+200C-200D,U+20B9,U+25CC}
 @font-face{font-family:"Anek Malayalam";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/anek-malayalam-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{color-scheme:light;--hf:"Anek Malayalam","Manjari","Noto Sans Malayalam",sans-serif;--navy:#0e2c47;--navy2:#143a5c;--teal:#1d5f6f;--maroon:#7c1150;--gold:#c9a25a;--gold2:#e2c48a;--cream:#fbf6ee;--cream2:#f4eadb;--paper:#fffdf9;--ink:#1a2430;--mut:#5c6470;--line:#e8dfd0;--bg:var(--cream);--soft:#f7f0e4;--card:#fff;--brand:var(--navy)}
+:root{color-scheme:only light;--hf:"Anek Malayalam","Manjari","Noto Sans Malayalam",sans-serif;--navy:#0e2c47;--navy2:#143a5c;--teal:#1d5f6f;--maroon:#7c1150;--gold:#c9a25a;--gold2:#e2c48a;--cream:#fbf6ee;--cream2:#f4eadb;--paper:#fffdf9;--ink:#1a2430;--mut:#5c6470;--line:#e8dfd0;--bg:var(--cream);--soft:#f7f0e4;--card:#fff;--brand:var(--navy)}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Noto Sans Malayalam",system-ui,sans-serif;overflow-x:clip;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -792,7 +792,7 @@ function readFlip(id){
  buildFlip(0);
 }
 function buildFlip(start){
- const f=it.f,k=catOf("books"),more=f.total>f.pages.length;
+ const f=it.f,k=catOf("books"),more=f.more;
  if(pf){try{pf.destroy()}catch(e){}pf=null}
  const st=$("#stage");st.innerHTML="";const host=document.createElement("div");st.appendChild(host);
  host.innerHTML=f.pages.map((p,j)=>`<div class="pg" data-density="${j==0?"hard":"soft"}"><div class="pgi" data-src="${p.src}"></div></div>`).join("")
@@ -843,7 +843,7 @@ async function offline(){
   const lib=await (await fetch("vendor/page-flip.browser.js")).text();
   const imgs=[];
   for(let j=0;j<f.pages.length;j++){b.textContent=`തയ്യാറാക്കുന്നു… ${j+1} / ${f.pages.length}`;imgs.push(await toData(await (await fetch(f.pages[j].src)).blob()))}
-  const more=f.total>f.pages.length;
+  const more=f.more;
   const D={t:it.title,w:f.pages[0].w,h:f.pages[0].h,p:imgs,more,note:f.note,n:f.pages.length,total:f.total};
   const html=`<!DOCTYPE html><html lang="ml"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(it.title)} · ${esc(S.site_name)}</title>
 <style>*{box-sizing:border-box}body{margin:0;background:#141518;color:#fff;font:15px/1.5 system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;-webkit-user-select:none;user-select:none}
